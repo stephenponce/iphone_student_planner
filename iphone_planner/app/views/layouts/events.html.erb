@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Events: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'iui.css' %>
+  
+
+<script type="application/x-javascript" src="/javascripts/prototype.js"></script>
+  <script type="application/x-javascript" src="/javascripts/scriptaculous.js"></script>
+ 
+
+<script type="application/x-javascript" src="/javascripts/calendar_date_select/calendar_date_select.js"></script> 
+
+<%= calendar_date_select_includes "blue" %>
+
+</head>
+
+  <body>
+    <div class="toolbar">
+        <h1 id="pageTitle"><%= Time.now.strftime("%a - %b %d") %></h1>
+	  <%= link_to image_tag("/images/add.png"), {:controller=>'events', :action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
+
+<%= link_to_remote 'Views', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>
+
+<!--	  <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'leftButton', :target=>'_self' %> -->
+		
+
+    <div  id="toolbar_menu" style='display:none'>
+        <%= render :partial=>'change_view'%>
+    </div>
+
+        </div>
+		
+    </div>
+
+    <%= yield %>
+
+</body>
+</html>

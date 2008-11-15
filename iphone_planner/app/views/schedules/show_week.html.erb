@@ -1,0 +1,37 @@
+
+  <ul>
+    <% @dates.each do |c| %>
+
+        <div class="group_title"><%= c.strftime("%A - %m/%d") %></div>
+ 
+        <li>  
+           <% @events.each do |e| 
+               if (e.time_start.strftime("%m/%d").to_s == c.strftime("%m/%d").to_s) %>
+               <%=   link_to e.title, {:controller => 'events', :action => 'edit', :id => e.id}, :target => '_self' %>
+               <% end %>
+           <% end %>
+        </li>
+
+     <% end %>
+
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

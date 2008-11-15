@@ -1,7 +1,0 @@
-Title:<%=@event.title %><br />
-Date: <%=@event.time_start %> <br />
-
-<p>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
-</p>

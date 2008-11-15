@@ -1,3 +1,0 @@
-<%=calendar(:year=> Time.now.year, :month=> Time.now.month)%>
-
-
