@@ -15,9 +15,13 @@ body > *:not(.toolbar) {
     margin: 0;
     padding: 0;
     left: 0;
-    top: 45px;
+    top: 90px;
     width: 100%;
     min-height: 372px;
+}
+
+body > .modebar{
+	min-height:45px;
 }
 
 body[orient="landscape"] > *:not(.toolbar) {
@@ -53,6 +57,19 @@ body > .toolbar {
     background: url(/images/toolbar.png) #6d84a2 repeat-x;
 }
 
+body > .modebar {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+/*    border-bottom: 1px solid #2d3642; */
+    border-top: 4px solid #666;
+    padding: 10px;
+    top: 45px;
+    height: 45px;
+	background: url(/images/pinstripes.png)  repeat scroll 0 0;
+
+}
+
 .toolbar > h1 {
     position: absolute;
     overflow: hidden;
@@ -67,6 +84,37 @@ body > .toolbar {
     text-overflow: ellipsis;
     white-space: nowrap;
     color: #FFFFFF;
+}
+
+/*This is for the welcome page tool bar ONLY */
+.welcomePage  h1 {
+	position: absolute;
+    left: 50%;
+    margin: 1px 0 0 -75px;
+    height: 45px;
+    font-size: 18px;
+    width: 150px;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #FFFFFF;
+	
+}
+
+.modebar > h1 {
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    margin: 1px 0 0 -75px;
+    height: 45px;
+    font-size: 18px;
+    width: 150px;
+    font-weight: bold;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000000;
 }
 
 body[orient="landscape"] > .toolbar > h1 {
@@ -124,7 +172,58 @@ body[orient="landscape"] > .toolbar > h1 {
     background: none;
     -webkit-border-image: url(/images/toolButton.png) 0 5 0 5;
 }
-
+#selected{
+	background: none;
+    -webkit-border-image: url(/images/toolButton_selected.png) 0 5 0 5;
+	font-weight:bolder;
+	
+}
+.calendarTab {
+	position: absolute;
+    overflow: hidden;
+    top: 12px;
+    left: 78px;
+    margin: 0;
+    border-width: 0 5px;
+    padding: 5px 3px;
+    width: 67px;
+    height: 30px;
+    line-height: 30px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+    text-decoration: none;
+	text-align:center;
+    white-space: nowrap;
+    background: none;
+    -webkit-border-image: url(/images/toolButton.png) 0 5 0 5;
+}
+.toDoTab {
+	position: absolute;
+    overflow: hidden;
+    top: 12px;
+    left: 162px;
+    margin: 0;
+    border-width: 0 5px;
+    padding: 5px 3px;
+    width: 67px;
+    height: 30px;
+    line-height: 30px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+	text-align:center;
+    text-decoration: none;
+    white-space: nowrap;
+    background: none;
+    -webkit-border-image: url(/images/toolButton.png) 0 5 0 5;
+}
 
 #backButton {
     display: none;

@@ -1,4 +1,30 @@
 
+
+
+<div class="modebar">
+<%=
+    day = @endDate.day
+    month = @endDate.month
+    year = @endDate.year
+    nextDate = Date.new(year.to_i, month.to_i, day.to_i) + 6  
+    link_to '>', {:year=>nextDate.year.to_i, :month=>nextDate.month.to_i, :day=>nextDate.day.to_i}, :target => '_self', :class => 'button'
+%>
+
+<h1>
+<%=  @startDate.strftime("%b %d") + " - " + @endDate.strftime("%b %d") %>
+</h1>
+
+<%=
+    day = @startDate.day
+    month = @startDate.month
+    year = @startDate.year
+    prevDate = Date.new(year.to_i, month.to_i, day.to_i) - 6
+    link_to '<', {:year=>prevDate.year.to_i, :month=>prevDate.month.to_i, :day=>prevDate.day.to_i}, :target => '_self', :class => 'leftButton'
+%>  		
+  </div>
+
+
+
   <ul>
     <% @dates.each do |c| %>
 

@@ -1,11 +1,19 @@
-<h1>Listing events</h1>
+<div class='modebar'>
+</div>
 
-<table>
-  <tr>
-  </tr>
+ 
 
-</table>
 
-<br />
 
-<%= link_to 'New event', new_event_path %>
+<div class='panel'>
+
+  
+  <fieldset>
+    <p align='center'> Select one of the following options to continue.</p>
+  </fieldset>
+  
+  <%= link_to  'Calendar', {:controller=>'schedules', :action=>'show_day', :year=>Time.now.year, :month=>Time.now.month, :day=>Time.now.day}, :class=> 'whiteButton' %>
+
+  <%= link_to 'To Do List', {:controller=>'tasks', :action=>'index'}, :class => 'whiteButton' %>
+
+</div>

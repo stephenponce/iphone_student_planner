@@ -16,11 +16,14 @@ TD XHTML 1.0 Strict//EN"
 
   <body>
     <div class="toolbar">
-        <h1 id="pageTitle"><%= Time.now.strftime("%a - %b %d") %></h1>
+        <h1 id="pageTitle"></h1>
 	  <%= link_to image_tag("/images/add.png"), {:controller=>'events', :action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
 <!--	  <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'leftButton', :target=>'_self' %>  -->
 
+      <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'toDoTab' %>
 
+      <%= link_to 'Calendar', {:controller=>'schedules', :action=>'show_day', :day=>Time.now.day, :month=>Time.now.month, :year=>Time.now.year}, :class => 'calendarTab' , :id=>'selected' %>
+      
 <%= link_to_remote 'Views', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>  
 
 <!--<%= link_to_remote 'Change View', :update=>'toolbar_menu', :url=>{:controller=>'schedules', :action=>'change_view'}, :class => 'leftButton' %>  -->
@@ -28,10 +31,8 @@ TD XHTML 1.0 Strict//EN"
     <div  id="toolbar_menu" style='display:none'>
         <%= render :partial=>'change_view'%>
     </div>
-		</div>
+  </div>
 	
-		
-    </div>
     <%= yield %>
 
 </body>

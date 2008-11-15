@@ -1,6 +1,7 @@
 require 'vpim'
 class Event < ActiveRecord::Base
   belongs_to :schedule
+  has_many :tasks
 
   def occurs_on
     

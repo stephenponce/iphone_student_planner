@@ -17,9 +17,14 @@ TD XHTML 1.0 Strict//EN"
 
   <body>
     <div class="toolbar">
-       <h1 id="pageTitle"><%= Time.now.strftime("%a - %b %d") %></h1>
+           <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'toDoTab', :id=>'selected' %>
+
+           <%= link_to 'Calendar', {:controller=>'schedules', :action=>'show_day', :day=>Time.now.day, :month=>Time.now.month, :year=>Time.now.year}, :class => 'calendarTab'  %>
+
+     <%= link_to_remote 'Sort', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>  
+       
        <%= link_to image_tag("/images/add.png"), {:action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
-	<%= link_to 'Calendar', {:controller=>'date', :year=>Time.now.year, :month=>Time.now.month, :day=>Time.now.day}, :class => "leftButton", :target=>'_self' %> 
+
 	 	</div>
 	
 		

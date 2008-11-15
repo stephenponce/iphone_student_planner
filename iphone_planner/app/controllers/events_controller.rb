@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  layout 'events'
+  layout 'schedules'
  
 #implements the active scaffolding plugin for the events model
 #  active_scaffold :event do |config|
@@ -7,22 +7,13 @@ class EventsController < ApplicationController
 #    list.columns.exclude [:time_end, :category]
 #  end
 
+  def freq_options
+  end
 
   def change_view 
     @year = params[:year]
     @month= params[:month]
     @day= params[:day]
-    
-    if (@day.to_i == 0)
-      @day=Time.now.day
-    end
-    if (@month.to_i == 0)
-      @day=Time.now.month
-    end
-    if (@year.to_i == 0)
-      @day=Time.now.year
-    end 
-
   end
 
 
@@ -52,6 +43,11 @@ class EventsController < ApplicationController
   # GET /events/new.xml
   def new
     @event = Event.new
+    @day = Time.now.day
+    @month = Time.now.month
+    @year = Time.now.year
+    
+    @frequency_list=['once', 'daily','weekly','monthly']
 
     respond_to do |format|
       format.html # new.html.erb
@@ -62,6 +58,9 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+    @day = Time.now.day
+    @month = Time.now.month
+    @year = Time.now.year
   end
 
   # POST /events

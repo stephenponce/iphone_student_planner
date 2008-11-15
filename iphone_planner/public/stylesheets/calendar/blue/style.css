@@ -21,6 +21,10 @@
   padding-bottom: 0.7em;
 }
 
+.monthName {
+  display:none;
+}
+
 .dayName th {
   font-size: 0.7em;
   padding-top: 0.6em;

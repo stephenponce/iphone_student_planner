@@ -9,6 +9,8 @@ class TasksController < ApplicationController
    
   def new
     @task = Task.new    
+    @event_list=  Event.find(:all, :order=>'title ASC')
+    
   end
   
   def create

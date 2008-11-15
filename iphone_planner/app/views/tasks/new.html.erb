@@ -1,12 +1,14 @@
+<div class='modebar'>
+    <%= link_to 'Back', {:action => 'index'}, :class => 'leftButton' %>
+    <h1 class="title">New Task</h1>
+</div>
+
+
 <div class='panel'>
 
 <% form_tag({:action => 'create', :selected => 'true'}) do %>
 
   <fieldset>
-
-    <%= link_to 'Back', {:action => 'index'}, :class => 'leftButton' %>
-
-    <h3 class="title">Create New Task</h3>
 
     <div class="row">
        <label for="task_title">Title:</label>
@@ -22,6 +24,12 @@
        <label for="task_description">Desc:</label>
        <%= text_area 'task', 'description' %>
     </div>
+    
+    <div class="row">
+       <label for="event_id">Associate w. Event:</label>
+       <%= collection_select :task, :event_id, Event.find(:all), :id, :title %>
+    </div>
+    
 
   </fieldset>
 

@@ -5,7 +5,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Events: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'iui.css' %>
   
 
@@ -13,30 +12,28 @@
   <script type="application/x-javascript" src="/javascripts/scriptaculous.js"></script>
  
 
-<script type="application/x-javascript" src="/javascripts/calendar_date_select/calendar_date_select.js"></script> 
-
-<%= calendar_date_select_includes "blue" %>
+<!--<script type="application/x-javascript" src="/javascripts/calendar_date_select/calendar_date_select.js"></script> -->
 
 </head>
 
   <body>
-    <div class="toolbar">
-        <h1 id="pageTitle"><%= Time.now.strftime("%a - %b %d") %></h1>
-	  <%= link_to image_tag("/images/add.png"), {:controller=>'events', :action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
+     <div class="toolbar">
+          <h1 id="pageTitle"></h1>
+  	  <%= link_to image_tag("/images/add.png"), {:controller=>'events', :action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
+  <!--	  <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'leftButton', :target=>'_self' %>  -->
 
-<%= link_to_remote 'Views', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>
+        <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'toDoTab' %>
 
-<!--	  <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'leftButton', :target=>'_self' %> -->
-		
+        <%= link_to 'Calendar', {:controller=>'schedules', :action=>'show_day', :day=>Time.now.day, :month=>Time.now.month, :year=>Time.now.year}, :class => 'calendarTab' , :id=>'selected' %>
 
-    <div  id="toolbar_menu" style='display:none'>
-        <%= render :partial=>'change_view'%>
+  <%= link_to_remote 'Views', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>  
+
+  <!--<%= link_to_remote 'Change View', :update=>'toolbar_menu', :url=>{:controller=>'schedules', :action=>'change_view'}, :class => 'leftButton' %>  -->
+
+      <div  id="toolbar_menu" style='display:none'>
+          <%= render :partial=>'change_view'%>
+      </div>
     </div>
-
-        </div>
-		
-    </div>
-
     <%= yield %>
 
 </body>

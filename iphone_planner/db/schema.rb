@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081107174204) do
+ActiveRecord::Schema.define(:version => 20081115211940) do
 
   create_table "events", :force => true do |t|
     t.datetime "created_at"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20081107174204) do
     t.string   "day"
     t.boolean  "reoccuring_event"
     t.string   "reoccurs_on"
-    t.date     "reoccurs_until"
+    t.string   "frequency"
   end
 
   create_table "schedules", :force => true do |t|

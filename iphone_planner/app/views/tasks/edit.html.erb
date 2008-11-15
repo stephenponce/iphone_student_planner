@@ -1,15 +1,18 @@
 
+<div class='modebar'>
+    <%= link_to 'Back', {:action => 'index'}, :class => 'leftButton' %>
+    <%= link_to "Delete", {:action => 'delete', :id => @task},       
+:confirm => "Are you sure you want to delete this item?", :target => '_self', :class => 'button' %>
+
+    <h1 class="title">Edit Task</h1>
+</div>
+
+
 <div class='panel'>
 
 <% form_tag '/tasks/update/'+@task.id.to_s, :selected => 'true' do %>
 
   <fieldset>
-
-    <%= link_to 'Back', {:action => 'index'}, :class => 'leftButton' %>
-    <%= link_to "Delete", {:action => 'delete', :id => @task},       
-:confirm => "Are you sure you want to delete this item?", :target => '_self', :class => 'button' %>
-
-    <h3 class="title">Edit Task</h3>
 
     <div class="row">
        <label for="task_title">Title:</label>

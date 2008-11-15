@@ -10,13 +10,22 @@ include CalendarHelper
   listOfSpecialDays = ['1','4']
   
   def change_view 
+    @year = params[:year]
+    @month= params[:month]
+    @day= params[:day]
     
-    @year = params[:year].blank? ? Time.now.strftime("%Y") : params[:year]
-    @month= params[:month].blank? ? Time.now.strftime("%m") : params[:month]
-    @day= params[:day] ? Time.now.strftime("%d") : params[:day]
+    if (@day == nil)
+      @day=Time.now.strftime("%d")
+    end
+    if (@month == nil)
+      @day=Time.now.strftime("%m")
+    end
+    if (@year == nil)
+      @day=Time.now.strftime("%Y")
+    end 
 
   end
-
+  
 
   def month_view_list
     render :text=>'Invalid Month'
@@ -55,60 +64,30 @@ include CalendarHelper
     @month= params[:month]
     @day=   params[:day]
 
-   
-    if (@month.to_i == 2)
-       if (@day.to_i > 22)
-          @endYear = @year
-          @endMonth = @month.to_i + 1
-          @endDay = @day.to_i - 22
-       else
-          @endYear = @year
-          @endMonth = @month.to_i
-          @endDay = @day.to_i + 6
-       end
-    elsif (@month.to_i == 1 || @month.to_i == 3 || @month.to_i == 5 || @month.to_i == 7 || @month.to_i == 8 || @month.to_i == 10)
-       if (@day.to_i > 25)
-          @endYear = @year
-          @endMonth = @month.to_i + 1
-          @endDay = @day.to_i - 25
-       else 
-          @endYear = @year
-          @endMonth = @month.to_i
-          @endDay = @day.to_i + 6
-       end
-    elsif (@month.to_i == 4 || @month.to_i == 6 || @month.to_i == 9 || @month.to_i == 11) 
-       if (@day.to_i > 24)
-          @endYear = @year
-          @endMonth = @month.to_i + 1
-          @endDay = @day.to_i - 24
-       else 
-          @endYear = @year
-          @endMonth = @month.to_i
-          @endDay = @day.to_i + 6
-       end
-    elsif (@month.to_i == 12)
-       if (@day.to_i > 25)
-          @endYear = @year.to_i + 1
-          @endMonth = 1
-          @endDay = @day.to_i - 25
-       else 
-          @endYear = @year
-          @endMonth = @month.to_i
-          @endDay = @day.to_i + 6
-       end
+    #Find the most recent Monday in the past
+    @endDate = Date.civil(@year.to_i, @month.to_i, @day.to_i)
+    @startDate = @endDate - 6
+    @dateRange = (@startDate..@endDate).to_a
+
+    @dateRange.each do |d|
+       if (d.cwday == 1)
+           @year = d.year
+           @month = d.month
+           @day = d.day
+           break
+       end  
     end
  
     @startDate = Date.civil(@year.to_i, @month.to_i, @day.to_i)
-    @endDate = Date.civil(@endYear.to_i, @endMonth.to_i, @endDay.to_i)
+    @endDate = @startDate + 6
     @dates = (@startDate..@endDate).to_a
 
     t=Time.new
     #construct the date you want to look     
     Time.gm(2000,"jan",1,20,15,1)   #=> Sat Jan 01 20:15:01 UTC 2000
     
-    @current_date= Time.gm(@year, @month, @day, t.hour, t.min, t.sec, t.usec)
-    @current_date_start = Time.gm(@year, @month, @day, 0, 0, 0, 0)
-    @current_date_end = Time.gm(@endYear, @endMonth, @endDay, 23, 59, 59, 0)
+    @current_date_start = Time.gm(@startDate.year, @startDate.month, @startDate.day, 0, 0, 0, 0)
+    @current_date_end = Time.gm(@endDate.year, @endDate.month, @endDate.day, 23, 59, 59, 0)
     
    @events = Event.find :all, :order => 'time_start ASC',
         :conditions => ['time_start >= ? AND time_start <= ?',  @current_date_start, @current_date_end] 
@@ -120,7 +99,7 @@ include CalendarHelper
   def show_month
     @year = params[:year]
     @month= params[:month]
-    @day = Time.now.strftime("%d")
+    @day = Time.now.day
     
   end
 
