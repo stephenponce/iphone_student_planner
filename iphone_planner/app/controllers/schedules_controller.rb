@@ -10,22 +10,13 @@ include CalendarHelper
   listOfSpecialDays = ['1','4']
   
   def change_view 
-    @year = params[:year]
-    @month= params[:month]
-    @day= params[:day]
     
-    if (@day == nil)
-      @day=Time.now.strftime("%d")
-    end
-    if (@month == nil)
-      @day=Time.now.strftime("%m")
-    end
-    if (@year == nil)
-      @day=Time.now.strftime("%Y")
-    end 
+    @year = params[:year].blank? ? Time.now.strftime("%Y") : params[:year]
+    @month= params[:month].blank? ? Time.now.strftime("%m") : params[:month]
+    @day= params[:day] ? Time.now.strftime("%d") : params[:day]
 
   end
-  
+
 
   def month_view_list
     render :text=>'Invalid Month'
@@ -129,6 +120,7 @@ include CalendarHelper
   def show_month
     @year = params[:year]
     @month= params[:month]
+    @day = Time.now.strftime("%d")
     
   end
 
