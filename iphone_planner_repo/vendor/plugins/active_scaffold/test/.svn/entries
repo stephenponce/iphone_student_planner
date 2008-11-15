@@ -1,0 +1,83 @@
+8
+
+dir
+2
+file:///Users/stephen/Desktop/iphone_planner_repo/vendor/plugins/active_scaffold/test
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:44:05.667213Z
+2
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+bridges
+dir
+
+extensions
+dir
+
+model_stub.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+b7055c1e0c3abe26cc09d82999795e7a
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+test_helper.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+a7f21ee34e233087809f40d8fbc5dc5f
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+config
+dir
+
+const_mocker.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+44f582f11696f0bdc4c4af289d1e41db
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+misc
+dir
+
+data_structures
+dir
+
+run_all.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+9c55592dd24263e28e9cd538be4d7478
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+

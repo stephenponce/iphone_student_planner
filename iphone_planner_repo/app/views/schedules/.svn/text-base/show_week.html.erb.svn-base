@@ -1,0 +1,9 @@
+
+<%= week_view(:start_date => @startDate, :end_date => @endDate) %>
+
+
+
+
+
+
+

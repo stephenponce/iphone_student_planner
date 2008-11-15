@@ -1,0 +1,11 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+  </tr>
+
+</table>
+
+<br />
+
+<%= link_to 'New event', new_event_path %>

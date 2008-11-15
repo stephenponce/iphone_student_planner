@@ -1,0 +1,81 @@
+8
+
+dir
+2
+file:///Users/stephen/Desktop/iphone_planner_repo/vendor/plugins/active_scaffold/test/misc
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:44:05.667213Z
+2
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+configurable_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+8844d65122d2e24e022f2e313d02919c
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+lang_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+1860c6888418471e2884438471f9eed3
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+active_record_permissions.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+dd43387c9ae597c98837c7f30edaff81
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+constraints_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+db986bd97ad0ab3dac71a98f559fd356
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+finder_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+0b10b7c8576f84e0b79ce655e705f914
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+

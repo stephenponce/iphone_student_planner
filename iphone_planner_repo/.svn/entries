@@ -1,0 +1,100 @@
+8
+
+dir
+1
+file:///Users/stephen/Desktop/iphone_planner_repo
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:38:31.932680Z
+1
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f3089d26-d912-464a-9dc0-44ec733d60b6
+
+test
+dir
+
+app
+dir
+
+haml
+dir
+
+log
+dir
+
+Rakefile
+file
+2
+
+
+
+2008-11-08T17:09:36.000000Z
+17f2f134da4cd31ea095d5868ca89e86
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+script
+dir
+
+config
+dir
+
+db
+dir
+
+doc
+dir
+
+rails_app
+dir
+
+base-calendar-app-20081112.zip
+file
+
+
+
+
+2008-11-14T19:42:59.000000Z
+0f8810b8eb0081a73359dadf1cbc955f
+2008-11-14T19:38:31.932680Z
+1
+stephen
+has-props
+
+README
+file
+2
+
+
+
+2008-11-08T17:09:36.000000Z
+0cdf56769f20a2b73a929ac3ba633152
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+vendor
+dir
+
+public
+dir
+

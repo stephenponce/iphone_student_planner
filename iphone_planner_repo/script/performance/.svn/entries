@@ -1,0 +1,55 @@
+8
+
+dir
+2
+file:///Users/stephen/Desktop/iphone_planner_repo/script/performance
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:44:05.667213Z
+2
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+benchmarker
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+91086af38733556c5aabc91eb4b20bed
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+profiler
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+4dd7faa9b0b5f678082e19c97852b005
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+request
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+9316140f20aace6cf628d17b5bfd1119
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+

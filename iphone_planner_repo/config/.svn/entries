@@ -1,0 +1,74 @@
+8
+
+dir
+2
+file:///Users/stephen/Desktop/iphone_planner_repo/config
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:44:05.667213Z
+2
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+routes.rb
+file
+
+
+
+
+2008-11-14T19:12:16.000000Z
+5daea104ef5a9d3e982aa25da8becdc9
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+database.yml
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+ebfc44cda99dcfcd3fcb92bcc69fc5b6
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+boot.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+bafbe71089a2c9f6414fb47b3978bcef
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+environment.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+e9ffc9c8ad21b2dc753d078fe01e6124
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+initializers
+dir
+
+environments
+dir
+

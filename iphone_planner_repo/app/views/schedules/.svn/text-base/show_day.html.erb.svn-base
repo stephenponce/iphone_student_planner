@@ -1,0 +1,63 @@
+
+<!-- NEED TO CHANGE CSS TO GET FORWARD AND BACK LINKS TO APPEAR PROPERLY. ALSO DOES NOT TAKE DAYLIGHT SAVINGS INTO ACCOUNT --> 
+
+  <ul id="events">
+
+    <li>
+<%=
+    if((@month.to_i == 1 || @month.to_i == 3 || @month.to_i == 5 || @month.to_i == 7 || @month.to_i == 8 || @month.to_i == 10 || @month.to_i == 12) && (@day.to_i == 31)) 
+      if (@month.to_i == 12)
+         link_to 'Next', {:year=>(@year.to_i + 1), :month=> 1, :day => 1}, :target => '_self'
+      else 
+         link_to 'Next', {:year=>@year.to_i, :month=>(@month.to_i + 1), :day => 1}, :target => '_self'
+      end
+    elsif((@month.to_i == 4 || @month.to_i == 6 || @month.to_i == 9 || @month.to_i == 11) && (@day.to_i == 30)) 
+	link_to 'Next', {:year=>@year.to_i, :month=>(@month.to_i + 1), :day => 1}, :target => '_self'
+    elsif((@month.to_i == 2) && (@day.to_i == 28)) 
+	link_to 'Next', {:year=>@year.to_i, :month=>(@month.to_i + 1), :day => 1}, :target => '_self'
+    else
+      link_to 'Next', {:year=>@year.to_i, :month=>@month.to_i, :day => (@day.to_i + 1)}, :target => '_self' 
+    end
+%>
+    </li>
+
+    <li>
+<%=
+    if(@month.to_i == 1 && @day.to_i == 1) 
+      link_to 'Previous', {:year=>(@year.to_i - 1), :month=> 12, :day=> 31}, :target => '_self'
+    elsif ((@month.to_i == 2 || @month.to_i == 4 || @month.to_i == 6 || @month.to_i == 8 || @month.to_i == 9 || @month.to_i == 11) && (@day.to_i == 1))
+      link_to 'Previous', {:year=> @year.to_i, :month=>(@month.to_i - 1), :day=> 31}, :target => '_self' 
+    elsif ((@month.to_i == 5 || @month.to_i == 7 || @month.to_i == 10 || @month.to_i == 12) && (@day.to_i == 1))
+      link_to 'Previous', {:year=> @year.to_i, :month=>(@month.to_i - 1), :day=> 30}, :target => '_self'
+    elsif (@month.to_i == 3 && @day.to_i == 1)
+      link_to 'Previous', {:year=> @year.to_i, :month=>(@month.to_i - 1), :day=> 28}, :target => '_self'
+    else
+      link_to 'Previous', {:year=>@year.to_i, :month=>@month.to_i, :day => (@day.to_i - 1)}, :target => '_self' 
+    end 
+%>   
+    </li>
+
+    <li>
+      <%= link_to 'Month View', {:controller => 'calendar', :year => @year.to_i, :month => @month.to_i}, :target=>'_self' %>
+    </li>
+
+    <% @events.each do |c| %>
+
+        <div class="group_title"><%= c.time_start.strftime("%I:%M %p") + ' - ' + c.time_end.strftime("%I:%M %p") %></div>
+
+ 
+        <li>
+       <!-- <%= link_to c.time_start.strftime("%I:%M %p") + ' - ' + c.title, {:controller => 'events', :action => 'edit', :id => c.id}, :target => '_self' -%>   -->   
+
+        <%= link_to c.title, {:controller => 'events', :action => 'edit', :id => c.id}, :target => '_self'  %>
+        </li>
+
+    <% end %>
+  </ul>
+
+
+
+
+
+
+

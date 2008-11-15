@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//D
+TD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <title>Schedule: <%= @current_date%></title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  <meta name="apple-touch-fullscreen" content="YES" />
+  	
+<!--
+<script type="application/x-javascript" src="/javascripts/iuix.js"></script>
+-->
+  <script type="application/x-javascript" src="/javascripts/prototype.js"></script>
+  <script type="application/x-javascript" src="/javascripts/calendar_date_select/calendar_date_select.js"></script>
+
+
+  <%= stylesheet_link_tag 'iui.css' %>
+  <%= stylesheet_link_tag 'calendar/blue/style.css' %>
+  <!-- <%= calendar_date_select_includes "blue" %> -->
+  <!--<%= stylesheet_link_tag 'month_view.css' %>-->
+
+  <body>
+    <div class="toolbar">
+        <h1 id="pageTitle"><%= Time.now.strftime("%a - %b %d") %></h1>
+	  <%= link_to image_tag("/images/add.png"), {:controller=>'events', :action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
+	  <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'leftButton', :target=>'_self' %> 
+		</div>
+	
+		
+    </div>
+    <%= yield %>
+
+</body>
+</html>

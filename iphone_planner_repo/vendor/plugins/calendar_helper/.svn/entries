@@ -1,0 +1,116 @@
+8
+
+dir
+2
+file:///Users/stephen/Desktop/iphone_planner_repo/vendor/plugins/calendar_helper
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:44:05.667213Z
+2
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+History.txt
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+82e239f94b32725a31a459e847370bb8
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+test
+dir
+
+Rakefile
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+a4d7ea27986d162c693a91152cc25aa1
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+Manifest.txt
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+5125feac16ff6edf2453db994b323590
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+init.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+c581ffa7cedb72e5770630db463a5fb4
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+lib
+dir
+
+generators
+dir
+
+MIT-LICENSE
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+ab9b97df69fac2311dca359eb541485e
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+about.yml
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+38932fdc5649982ac9960fdb1e8615bf
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+README.txt
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+e36c421afa909f7a64d13305a924b66a
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+

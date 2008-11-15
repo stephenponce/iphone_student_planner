@@ -1,0 +1,33 @@
+
+
+<%
+   listOfSpecialDays = [1,2]
+    @next_date=nil
+    if(@month.to_i == 12 )
+      @next_date = link_to 'Next', {:year=>(@year.to_i + 1), :month=> 1}
+    else
+      @next_date = link_to 'Next', {:year=>@year.to_i, :month=>(@month.to_i + 1)}
+    end
+	
+    #code to generate previous month link
+    @prev_date=nil
+    if(@month.to_i == 1 )
+      @prev_date = link_to 'Previous', {:year=>(@year.to_i - 1), :month=> 12}
+    else
+      @prev_date = link_to 'Previous', {:year=>@year.to_i, :month=>(@month.to_i - 1)}
+    end
+
+
+%>
+
+
+<div class='panel'>
+<%= calendar(:abbrev=> (0..1), :table_class=>'calendar_helper', :year => @year.to_i, :month => @month.to_i, :previous_month_text => @prev_date, :next_month_text => @next_date) do |d|
+    [ link_to d.mday, {:action=>'show_day', :year => @year.to_i, :month => @month.to_i, :day => d.mday}]
+   end
+
+ %>
+
+</div>	
+
+

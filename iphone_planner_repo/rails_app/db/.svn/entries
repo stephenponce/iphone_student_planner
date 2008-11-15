@@ -1,0 +1,70 @@
+8
+
+dir
+1
+file:///Users/stephen/Desktop/iphone_planner_repo/rails_app/db
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:38:31.932680Z
+1
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f3089d26-d912-464a-9dc0-44ec733d60b6
+
+schema.rb
+file
+
+
+
+
+2008-11-14T19:42:57.000000Z
+8a9d060edaad740839531ddd3cda4e82
+2008-11-14T19:38:31.932680Z
+1
+stephen
+has-props
+
+test.sqlite3
+file
+
+
+
+
+2008-11-14T19:42:57.000000Z
+1cd36162f1da8a2f4106882195d62758
+2008-11-14T19:38:31.932680Z
+1
+stephen
+has-props
+
+development.sqlite3
+file
+
+
+
+
+2008-11-14T19:42:57.000000Z
+dbd13edea791416a027b8f1064c359fc
+2008-11-14T19:38:31.932680Z
+1
+stephen
+has-props
+
+migrate
+dir
+

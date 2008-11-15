@@ -1,0 +1,55 @@
+8
+
+dir
+2
+file:///Users/stephen/Desktop/iphone_planner_repo/app/views/tasks
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:44:05.667213Z
+2
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+edit.html.erb
+file
+
+
+
+
+2008-11-11T01:41:52.000000Z
+a703c425ac15b53f9a27b4ba85eb3b45
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+index.html.erb
+file
+
+
+
+
+2008-11-12T01:17:52.000000Z
+6c8864f0786333a4da686d0af69ae4fa
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+new.html.erb
+file
+
+
+
+
+2008-11-11T01:44:20.000000Z
+6e0e9a9cb3d524ee2593c7d465538d91
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+

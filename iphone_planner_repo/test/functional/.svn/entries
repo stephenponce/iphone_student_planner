@@ -1,0 +1,81 @@
+8
+
+dir
+2
+file:///Users/stephen/Desktop/iphone_planner_repo/test/functional
+file:///Users/stephen/Desktop/iphone_planner_repo
+
+
+
+2008-11-14T19:44:05.667213Z
+2
+stephen
+
+
+svn:special svn:externals svn:needs-lock
+
+welcome_controller_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+e17d3ea6fa078abfb04f255a3c575ca4
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+schedule_controller_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+0f2796783af59414cacd36f83dddfc87
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+schedules_controller_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+54c96297826c07e88df58762dc100952
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+events_controller_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+c69a84217dcec1754409e61b145e48a2
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
+tasks_controller_test.rb
+file
+
+
+
+
+2008-11-08T17:09:36.000000Z
+4ca0eb85993b0c1195dfbfb2fa7c5f38
+2008-11-14T19:44:05.667213Z
+2
+stephen
+has-props
+
