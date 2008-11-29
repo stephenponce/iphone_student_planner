@@ -238,6 +238,11 @@ input {
     padding: 6px 6px 6px 44px;
     font-size: 16px;
     font-weight: normal;
+}     
+
+input[type='radio']{
+	padding:0px;
+	margin:8px;
 }
 
 /************************************************************************************************/
