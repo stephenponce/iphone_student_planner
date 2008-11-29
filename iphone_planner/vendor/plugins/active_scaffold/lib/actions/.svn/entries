@@ -1,18 +1,30 @@
 8
 
 dir
-2
-file:///Users/stephen/Desktop/iphone_planner_repo/vendor/plugins/active_scaffold/lib/actions
-file:///Users/stephen/Desktop/iphone_planner_repo
+1
+file:///Users/stephen/best_buy_repo/rails_app/vendor/plugins/active_scaffold/lib/actions
+file:///Users/stephen/best_buy_repo
 
 
 
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
 
 
 svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f2baa101-dcf0-4119-8a46-b58bfa645f4e
 
 subform.rb
 file
@@ -20,12 +32,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 e8262642bcb071b6eb8e372812b1bc3e
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 show.rb
 file
@@ -33,12 +44,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 9153d6b46084e76f78ba21bcac35538d
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 delete.rb
 file
@@ -46,12 +56,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 f4efcc75aaf44413b39a418902610f18
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 nested.rb
 file
@@ -59,12 +68,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 3dfc4cb512eb989d766d7ac8872a032d
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 update.rb
 file
@@ -72,12 +80,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 52b5ef574db9157944feb462c89df62d
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 create.rb
 file
@@ -85,12 +92,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 1193ea8199bdeb34b50eb9c2cb97b43e
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 live_search.rb
 file
@@ -98,12 +104,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 29820bf56cbd6af03fb2660299632e9d
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 search.rb
 file
@@ -111,12 +116,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 4d659d929cfda3045e26a01d132de9a2
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 core.rb
 file
@@ -124,12 +128,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 be973382c07ad6654582084119dccc31
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 field_search.rb
 file
@@ -137,12 +140,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-291f7006156ec7fd6399ad026b6dda48
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:20.000000Z
+7a517eb3d6e3681470fd10bcc7368f8e
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 list.rb
 file
@@ -150,10 +152,9 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 6b1135bbdc6f0f53a6e80c595b59b5c1
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 

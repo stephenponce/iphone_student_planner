@@ -82,6 +82,11 @@ module ActiveScaffold::DataStructures
       @list_ui || @form_ui
     end
 
+    attr_writer :search_ui
+    def search_ui
+      @search_ui || @form_ui
+    end
+
     # DEPRECATED
     alias :ui_type :form_ui
     def ui_type=(val)
@@ -140,6 +145,22 @@ module ActiveScaffold::DataStructures
       search_sql != false && search_sql != nil
     end
 
+    # to modify the default order of columns
+    attr_accessor :weight
+
+    # to set how many associated records a column with plural association must show in list
+    cattr_accessor :associated_limit
+    @@associated_limit = 3
+    attr_accessor :associated_limit
+
+    # whether the number of associated records must be shown or not
+    cattr_accessor :associated_number
+    @@associated_number = true
+    attr_writer :associated_number
+    def associated_number?
+      @associated_number
+    end
+
     # ----------------------------------------------------------------- #
     # the below functionality is intended for internal consumption only #
     # ----------------------------------------------------------------- #
@@ -189,6 +210,8 @@ module ActiveScaffold::DataStructures
       @active_record_class = active_record_class
       @table = active_record_class.table_name
       @weight = 0
+      @associated_limit = self.class.associated_limit
+      @associated_number = self.class.associated_number
 
       # default all the configurable variables
       self.label = @column.human_name unless @column.nil?
@@ -197,7 +220,9 @@ module ActiveScaffold::DataStructures
       if active_record_class.respond_to? :reflect_on_validations_for
         column_name = name
         column_name = @association.primary_key_name if @association
-        self.required = active_record_class.reflect_on_validations_for(column_name.to_sym).any? {|val| val.macro == :validates_presence_of}
+        self.required = active_record_class.reflect_on_validations_for(column_name.to_sym).any? do |val|
+          val.macro == :validates_presence_of or (val.macro == :validates_inclusion_of and not val.options[:allow_nil] and not val.options[:allow_blank])
+        end
       else
         self.required = false
       end
@@ -213,7 +238,6 @@ module ActiveScaffold::DataStructures
       column ? @active_record_class.connection.quote_column_name(column.name) : association.primary_key_name
     end
 
-    attr_accessor :weight
     def <=>(other_column)
       order_weight = self.weight <=> other_column.weight
       order_weight != 0 ? order_weight : self.name.to_s <=> other_column.name.to_s

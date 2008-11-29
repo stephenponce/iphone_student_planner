@@ -1,6 +1,11 @@
 Title:<%=@event.title %><br />
 Date: <%=@event.time_start %> <br />
 
+<% for reocc in @event.reoccurrences %>
+  <%= reocc.title %> 
+  <br />
+  <%= reocc.frequency %>
+  <% end %>
 <p>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

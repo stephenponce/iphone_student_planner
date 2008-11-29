@@ -48,9 +48,8 @@ include CalendarHelper
     @current_date_start = Time.gm(@year, @month, @day, 0, 0, 0, 0)
     @current_date_end = Time.gm(@year, @month, @day, 23, 59, 59, 0)
     
-   @events = Event.find :all, :order => 'time_start ASC',
-        :conditions => ['time_start >= ? AND time_start <= ?', @current_date_start, @current_date_end] 
-
+   @events = Event.find(:all)
+   
     #subtract 1 to correctly index the text arrays
     @day_text = Day_List[@month.to_i-1]
     @month_text = Month_List[@month.to_i-1]
@@ -88,9 +87,10 @@ include CalendarHelper
     
     @current_date_start = Time.gm(@startDate.year, @startDate.month, @startDate.day, 0, 0, 0, 0)
     @current_date_end = Time.gm(@endDate.year, @endDate.month, @endDate.day, 23, 59, 59, 0)
-    
-   @events = Event.find :all, :order => 'time_start ASC',
+
+    @events = Event.find :all, :order => 'time_start ASC',
         :conditions => ['time_start >= ? AND time_start <= ?',  @current_date_start, @current_date_end] 
+        
 
   end
 

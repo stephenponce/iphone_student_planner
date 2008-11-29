@@ -1,18 +1,30 @@
 8
 
 dir
-2
-file:///Users/stephen/Desktop/iphone_planner_repo/vendor/plugins/active_scaffold/lib
-file:///Users/stephen/Desktop/iphone_planner_repo
+1
+file:///Users/stephen/best_buy_repo/rails_app/vendor/plugins/active_scaffold/lib
+file:///Users/stephen/best_buy_repo
 
 
 
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
 
 
 svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f2baa101-dcf0-4119-8a46-b58bfa645f4e
 
 bridges
 dir
@@ -23,12 +35,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 d64fa062119c5de4d83b537fcd8366eb
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 paginator.rb
 file
@@ -36,12 +47,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 6017765f750efdc42fc876800517afe2
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 dhtml_confirm.rb
 file
@@ -49,12 +59,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 ea3b5c4e9c7c22109c3b34ad36fba1f2
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 extensions
 dir
@@ -68,12 +77,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 7e34227b0462c7531eaaca7d888962a3
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 helpers
 dir
@@ -87,12 +95,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 0168cd18866c5c9d91e8c5f6b7cb63b2
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 attribute_params.rb
 file
@@ -100,12 +107,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-2abcdf9bd5224ab14afb4241df99a53d
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:20.000000Z
+cb7526436cca92f6b0e679a8a1631ea1
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 constraints.rb
 file
@@ -113,12 +119,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-9b6f97e1a790292c48743150233938aa
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:20.000000Z
+321d8b98bc5a8ff5f093175c495c8127
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 finder.rb
 file
@@ -126,12 +131,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-97959cb909e02cf59fbdcb33e718189f
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:20.000000Z
+89ead922d680a535323b3c3d51f593ef
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 responds_to_parent.rb
 file
@@ -139,12 +143,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 83ab2442c76b0703d8ca746bc75b6436
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 data_structures
 dir
@@ -155,10 +158,9 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 7b723c376f11846a4ac5b2cdd63e13c6
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 

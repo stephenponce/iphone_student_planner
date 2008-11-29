@@ -1,18 +1,30 @@
 8
 
 dir
-2
-file:///Users/stephen/Desktop/iphone_planner_repo/vendor/plugins/active_scaffold/lib/data_structures
-file:///Users/stephen/Desktop/iphone_planner_repo
+1
+file:///Users/stephen/best_buy_repo/rails_app/vendor/plugins/active_scaffold/lib/data_structures
+file:///Users/stephen/best_buy_repo
 
 
 
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
 
 
 svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f2baa101-dcf0-4119-8a46-b58bfa645f4e
 
 action_columns.rb
 file
@@ -20,12 +32,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-2cb8dfd1220ee49b00061d3dcc6beafa
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:20.000000Z
+60c1578fbdad77ea9d21e5c3d23759e6
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 action_links.rb
 file
@@ -33,12 +44,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 c22ab927d1e6670a226b5542abb714c4
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 column.rb
 file
@@ -46,12 +56,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-e6d3403f15849780cf4071efe5e49568
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:20.000000Z
+a51fb07df483e8a386965aebbc83d33a
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 error_message.rb
 file
@@ -59,12 +68,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 9f679f051e4f4557806acfdd21bb9c93
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 actions.rb
 file
@@ -72,12 +80,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 e30dad51388b9f2a433c73dd7daade3c
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 columns.rb
 file
@@ -85,12 +92,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-902520e7b66f0a5dc86cf92237478ddc
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:20.000000Z
+f30e8a3f0577b9589402d01fdd3ad7dc
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 sorting.rb
 file
@@ -98,12 +104,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 09ea65ddd416b5077b7a29d90098d735
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 action_link.rb
 file
@@ -111,12 +116,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 d2699cb433e40b13c325ba8162afaa34
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 set.rb
 file
@@ -124,10 +128,9 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-bafffc753c135496621d766b14b9bfd3
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:20.000000Z
+9a3c91c6b5f666d597eed992d3607cbc
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 

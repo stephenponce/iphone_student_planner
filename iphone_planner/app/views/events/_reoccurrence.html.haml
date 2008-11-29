@@ -1,0 +1,4 @@
+%p
+  = radio_button_tag 'reoccurrence[reoccurrence_ids][]', reoccurrence.id, @event.reoccurrences.include?(reoccurrence)
+  = reoccurrence.frequency
+  = reoccurrence.day_list

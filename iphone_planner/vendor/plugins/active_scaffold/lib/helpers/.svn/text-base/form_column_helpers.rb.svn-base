@@ -60,15 +60,13 @@ module ActiveScaffold
       def active_scaffold_input_singular_association(column, options)
         associated = @record.send(column.association.name)
 
-        options_for_select = options_for_association(column.association)
-        select_options = [[as_('- select -'),nil]]
-        select_options += [[ associated.to_label, associated.id ]] unless associated.nil? or options_for_select.find {|label, id| id == associated.id}
-        select_options += options_for_select
+        select_options = options_for_association(column.association)
+        select_options.unshift([ associated.to_label, associated.id ]) unless associated.nil? or select_options.find {|label, id| id == associated.id}
 
         selected = associated.nil? ? nil : associated.id
-
+        method = column.association.macro == :belongs_to ? column.association.primary_key_name : column.name
         options[:name] += '[id]'
-        select(:record, column.name, select_options.uniq, { :selected => selected }, options)
+        select(:record, method, select_options.uniq, {:selected => selected, :include_blank => as_('- select -')}, options)
       end
 
       def active_scaffold_input_plural_association(column, options)
@@ -177,6 +175,9 @@ module ActiveScaffold
         select_options << [as_('False'), false]
 
         select_tag(options[:name], options_for_select(select_options, @record.send(column.name)))
+      end
+
+      def onsubmit
       end
 
       ##

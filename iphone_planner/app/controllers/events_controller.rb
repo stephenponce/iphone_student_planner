@@ -3,10 +3,10 @@ class EventsController < ApplicationController
  
 #implements the active scaffolding plugin for the events model
 #  active_scaffold :event do |config|
-#    config.columns = [ :location_name, :title, :location_name, :time_start, :duration, :description, :reoccuring_event, :reoccurs_on]
+#    config.columns = [ :location_name, :title, :location_name, :time_start, :duration, :description, :reoccuring_event]
 #    list.columns.exclude [:time_end, :category]
 #  end
-
+#end
   def freq_options
   end
 
@@ -47,6 +47,9 @@ class EventsController < ApplicationController
     @month = Time.now.month
     @year = Time.now.year
     
+   
+    
+    
     @frequency_list=['once', 'daily','weekly','monthly']
 
     respond_to do |format|
@@ -61,6 +64,10 @@ class EventsController < ApplicationController
     @day = Time.now.day
     @month = Time.now.month
     @year = Time.now.year
+
+   @reoccurrences = @event.reoccurrences
+   
+    logger.info  @reoccurrences
   end
 
   # POST /events

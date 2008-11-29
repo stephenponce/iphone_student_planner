@@ -32,7 +32,7 @@
  
         <li>  
            <% @events.each do |e| 
-               if (e.time_start.strftime("%m/%d").to_s == c.strftime("%m/%d").to_s) %>
+               if (e.occurs_today?(c.year, c.month, c.day)) %>
                <%=   link_to e.title, {:controller => 'events', :action => 'edit', :id => e.id}, :target => '_self' %>
                <% end %>
            <% end %>

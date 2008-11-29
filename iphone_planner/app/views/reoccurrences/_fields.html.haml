@@ -1,0 +1,26 @@
+= f.error_messages
+%p
+  Title
+  = f.text_field :title
+%p
+  Frequency
+  = f.text_field :frequency
+%p
+  Occurs On
+  %br
+  S
+  = f.check_box :sunday
+  M
+  = f.check_box :monday
+  T
+  = f.check_box :tuesday
+  W
+  = f.check_box :wednesday
+  Th
+  = f.check_box :thursday
+  F
+  = f.check_box :friday
+  S
+  = f.check_box :saturday
+%p
+  = f.submit "Create"

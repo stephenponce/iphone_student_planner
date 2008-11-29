@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081115211940) do
+ActiveRecord::Schema.define(:version => 20081128233056) do
 
   create_table "events", :force => true do |t|
     t.datetime "created_at"
@@ -25,6 +25,29 @@ ActiveRecord::Schema.define(:version => 20081115211940) do
     t.boolean  "reoccuring_event"
     t.string   "reoccurs_on"
     t.string   "frequency"
+  end
+
+  create_table "events_reoccurrences", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "reoccurrence_id"
+  end
+
+  add_index "events_reoccurrences", ["reoccurrence_id"], :name => "index_events_reoccurrences_on_reoccurrence_id"
+  add_index "events_reoccurrences", ["event_id"], :name => "index_events_reoccurrences_on_event_id"
+
+  create_table "reoccurrences", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "frequency",     :default => "once"
+    t.boolean  "sunday",        :default => false
+    t.boolean  "monday",        :default => false
+    t.boolean  "tuesday",       :default => false
+    t.boolean  "wednesday",     :default => false
+    t.boolean  "thursday",      :default => false
+    t.boolean  "friday",        :default => false
+    t.boolean  "saturday",      :default => false
+    t.string   "week_of_month"
   end
 
   create_table "schedules", :force => true do |t|

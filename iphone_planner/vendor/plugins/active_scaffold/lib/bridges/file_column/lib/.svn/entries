@@ -1,18 +1,30 @@
 8
 
 dir
-2
-file:///Users/stephen/Desktop/iphone_planner_repo/vendor/plugins/active_scaffold/lib/bridges/file_column/lib
-file:///Users/stephen/Desktop/iphone_planner_repo
+1
+file:///Users/stephen/best_buy_repo/rails_app/vendor/plugins/active_scaffold/lib/bridges/file_column/lib
+file:///Users/stephen/best_buy_repo
 
 
 
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
 
 
 svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f2baa101-dcf0-4119-8a46-b58bfa645f4e
 
 file_column_helpers.rb
 file
@@ -20,12 +32,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 62b05366e2a459d4ce7e028c20b8da54
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 form_ui.rb
 file
@@ -33,12 +44,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 02b17f1696c99cbb2b29820b81b2e031
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 list_ui.rb
 file
@@ -46,12 +56,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 93bb66d9c9b39f42d12289bc70bd581f
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 as_file_column_bridge.rb
 file
@@ -59,10 +68,9 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:20.000000Z
 f42adff9312d2d5abb6d88eb0dc15279
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 

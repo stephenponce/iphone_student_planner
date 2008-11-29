@@ -15,6 +15,8 @@ module ActiveScaffold
 
         elsif column.inplace_edit and record.authorized_for?(:action => :update, :column => column.name)
           active_scaffold_inplace_edit(record, column)
+        elsif override_column_ui?(column.column.type)
+          send(override_column_ui(column.column.type), column, record)
         else
           value = record.send(column.name)
 
@@ -26,9 +28,11 @@ module ActiveScaffold
                 formatted_value = clean_column_value(format_column(value.to_label))
 
               when :has_many, :has_and_belongs_to_many
-                firsts = value.first(4).collect { |v| v.to_label }
-                firsts[3] = '…' if firsts.length == 4
+                firsts = value.first(column.associated_limit + 1).collect { |v| v.to_label }
+                firsts[column.associated_limit] = '…' if firsts.length > column.associated_limit
                 formatted_value = clean_column_value(format_column(firsts.join(', ')))
+                formatted_value << " (#{value.length})" if column.associated_number? and firsts.length > column.associated_limit
+                formatted_value
             end
           end
 
@@ -91,6 +95,10 @@ module ActiveScaffold
       ##
       ## Overrides
       ##
+      def active_scaffold_column_text(column, record)
+        truncate(clean_column_value(record.send(column.name)), 50)
+      end
+
       def active_scaffold_column_checkbox(column, record)
         column_value = record.send(column.name)
         if column.inplace_edit and record.authorized_for?(:action => :update, :column => column.name)

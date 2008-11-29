@@ -45,16 +45,16 @@
     
     <div class="row">
      <label for="frequency">How Often:</label>
-     <select name="frequency[freq]">
-      <% @frequency_list.each do |freq| %>
-        
-        <option value=  "<%= freq %>" >
-   
 
-         <%= freq %>
-        </option>
+      <% for reoccurrence in @reoccurrences %>
+        <p>
+          <%= radio_button_tag "reoccurrence[reoccurrence_ids][]", reoccurrence.id, @event.reoccurrences.include?(reoccurrence) %>
+          <%= reoccurrence.frequency %>
+        </p>
       <% end %>
-      </select>
+
+  
+  
     </div>
   
 

@@ -1,18 +1,30 @@
 8
 
 dir
-2
-file:///Users/stephen/Desktop/iphone_planner_repo/vendor/plugins/active_scaffold/frontends/default/javascripts
-file:///Users/stephen/Desktop/iphone_planner_repo
+1
+file:///Users/stephen/best_buy_repo/rails_app/vendor/plugins/active_scaffold/frontends/default/javascripts
+file:///Users/stephen/best_buy_repo
 
 
 
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
 
 
 svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f2baa101-dcf0-4119-8a46-b58bfa645f4e
 
 rico_corner.js
 file
@@ -20,12 +32,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:19.000000Z
 514ee6470e3370f0bf983d5991e63efe
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 dhtml_history.js
 file
@@ -33,10 +44,10 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:19.000000Z
 16b016bbedc19fb32a7819b731c45c4a
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
 has-props
 
@@ -46,12 +57,11 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
+2008-11-15T01:17:19.000000Z
 e9816df215cecc73476264c74392285a
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 
 active_scaffold.js
 file
@@ -59,10 +69,9 @@ file
 
 
 
-2008-11-08T17:09:36.000000Z
-ce0ce31e859f18ad54c9fe079af7dcfa
-2008-11-14T19:44:05.667213Z
-2
+2008-11-15T01:17:19.000000Z
+54a7b6ddecd583d36f0d9d60cd79e475
+2008-11-15T01:16:56.207837Z
+1
 stephen
-has-props
 

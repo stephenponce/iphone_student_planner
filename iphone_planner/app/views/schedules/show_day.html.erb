@@ -44,7 +44,7 @@
   <ul id="events">
 
     <% @events.each do |c| %>
-
+      <% if c.occurs_today?(@year, @month, @day) %>
         <div class="group_title"><%= c.time_start.strftime("%I:%M %p") + ' - ' + c.time_end.strftime("%I:%M %p") %></div>
 
  
@@ -53,6 +53,7 @@
 
         <%= link_to c.title, {:controller => 'events', :action => 'edit', :id => c.id}, :target => '_self'  %>
         </li>
+      <% end %>
 
     <% end %>
   </ul>

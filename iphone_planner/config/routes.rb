@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :reoccurrences, :active_scaffold => true
+
   map.resources :tasks
 
   map.resources :schedules
