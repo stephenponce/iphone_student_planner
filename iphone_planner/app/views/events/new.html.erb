@@ -8,57 +8,7 @@
 
 <% form_tag({:action => 'create', :selected => 'true'}) do %>
 
-  <fieldset>
-
-    <div class="row">
-       <label for="event_title">Title:</label>
-       <%= text_field 'event', 'title' %>
-    </div>
-
-    <div class="row">
-       <label for="event_location">Location:</label>
-       <%= text_field 'event', 'location_name' %>
-    </div>
-
-    <div class="row">
-       <label for="event_description">Desc:</label>
-       <%= text_area 'event', 'description' %>
-    </div>
-
-    <div class="row">
-       <label for="event_time_start">Begin:</label>
-       <%= text_field 'event', 'time_start' %>
-       <!-- <%= calendar_date_select 'event', 'time_start' %> -->
-    </div>
-
-    <div class="row">
-       <label for="event_time_end">End:</label>
-       <%= text_field 'event', 'time_end' %>
-          <!-- <%= calendar_date_select 'event', 'time_end' %> --> 
-    </div>
-
- <!--   <div class="row">
-       <label for="event_time_end">Reocurring?:</label>
-       <%= check_box("event", "reoccuring_event", {}, "yes", "no") %>
-    </div>
-    -->
-    
-    <div class="row">
-     <label for="frequency">How Often:</label>
-
-      <% for reoccurrence in @reoccurrences %>
-        <p>
-          <%= radio_button_tag "reoccurrence[reoccurrence_ids][]", reoccurrence.id, @event.reoccurrences.include?(reoccurrence) %>
-          <%= reoccurrence.frequency %>
-        </p>
-      <% end %>
-
-  
-  
-    </div>
-  
-
-  </fieldset>
+ <%= render :partial => 'fields', :locals=>{:event=>@event} %>
 
 <%= submit_tag "Create", :class => 'whiteButton'%>
 <% end  %>

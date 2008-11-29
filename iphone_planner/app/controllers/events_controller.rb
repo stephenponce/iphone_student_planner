@@ -45,8 +45,9 @@ class EventsController < ApplicationController
     @event = Event.new
     @day = Time.now.day
     @month = Time.now.month
-    @year = Time.now.year
+    @year = Time.now.year      
     
+    @reoccurrences = Reoccurrence.find(:all)
    
     
     

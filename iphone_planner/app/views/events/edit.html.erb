@@ -11,47 +11,7 @@
  
 <% form_tag '/events/update/'+@event.id.to_s, :selected => 'true' do %>
 
-  <fieldset>
-
-    <div class="row">
-       <label for="event_title">Title:</label>
-       <%= text_field 'event', 'title' %>
-    </div>
-
-    <div class='row'>
-       <label for="event_location">Location:</label>
-       <%= text_field 'event', 'title' %>
-    </div>
-
-    <div class="row">
-       <label for="event_description">Desc:</label>
-       <%= text_area 'event', 'description' %>
-    </div>
-
-    <div class="row">
-       <label for="event_time_start">Begin:</label>
-       <%= text_field 'event', 'time_start' %>
-          <!-- <%= calendar_date_select 'event', 'time_start' %> -->
-    </div>
-
-    <div class="row">
-       <label for="event_time_end">End:</label>
-       <%= text_field 'event', 'time_end' %>
-          <!-- <%= calendar_date_select 'event', 'time_end' %> --> 
-    </div>
-    <div class="row"> 
-    <%=h @reoccurrences.inspect %>
-    <% for reoccurrence in Reoccurrence.find(:all) %>
-      <div class= 'row' >
-             <label for="event_time_end"><%= reoccurrence.title %></label>
-        <%= radio_button_tag 'event[reoccurrence_ids][]', reoccurrence.id, @event.reoccurrences.include?(reoccurrence) %>
-      </div>
-    <% end %>
-    </div>
-
-
-
-  </fieldset>
+  <%= render :partial=>'fields', :locals=>{:event=>@event} %>
 
 <%= submit_tag "Save Changes", :class => 'whiteButton' %>
 <% end %>
