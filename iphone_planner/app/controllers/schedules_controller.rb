@@ -98,8 +98,30 @@ include CalendarHelper
   def show_month
     @year = params[:year]
     @month= params[:month]
-    @day = Time.now.day
-    
+    @day = Time.now.day 
+       
+      @startDate = Date.civil(@year.to_i, @month.to_i, 1)
+      if (@startDate.month == 1 || @startDate.month == 3 || @startDate.month == 5 || @startDate.month == 7 || @startDate.month == 8 || @startDate.month == 10 || @startDate.month == 12)           
+         @endDate = Date.civil(@year.to_i, @month.to_i, 31)
+      elsif (@startDate.month == 4 || @startDate.month == 6 || @startDate.month == 9 || @startDate.month == 11) 
+         @endDate = Date.civil(@year.to_i, @month.to_i, 30)
+      elsif (@startDate.month == 2)
+         @endDate = Date.civil(@year.to_i, @month.to_i, 28)
+      else 
+         @endDate = Date.civil(@year.to_i, @month.to_i, 31)
+      end                      
+      @events = Event.find :all, :order => 'time_start ASC',
+           :conditions => ['time_start >= ? AND time_start <= ?',  @startDate, @endDate]
+      
+      @daysWithEvents = Array.new
+      @day = 1
+      @events.each do |e|
+         if (e.occurs_today?(@year, @month, @day))           
+             @daysWithEvents.push(e.time_start.strftime("%d").to_i) 
+             @day = e.time_start.strftime("%d").to_i 
+         end  
+      end
+
   end
 
 
