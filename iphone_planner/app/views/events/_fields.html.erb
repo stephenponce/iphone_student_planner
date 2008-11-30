@@ -29,7 +29,8 @@
      <%= text_field 'event', 'time_end' %>
         <!-- <%= calendar_date_select 'event', 'time_end' %> --> 
   </div>
-  <div class="row"> 
+  <div> 
+    Reoccurs:
 <!--  <%=h @reoccurrences.inspect %> -->
 
   <% for reoccurrence in Reoccurrence.find(:all) %>
@@ -39,7 +40,7 @@
     </div>   
 
   <% end %>
-  </div>
+  </p>
 
 
 

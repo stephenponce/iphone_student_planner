@@ -88,8 +88,7 @@ include CalendarHelper
     @current_date_start = Time.gm(@startDate.year, @startDate.month, @startDate.day, 0, 0, 0, 0)
     @current_date_end = Time.gm(@endDate.year, @endDate.month, @endDate.day, 23, 59, 59, 0)
 
-    @events = Event.find :all, :order => 'time_start ASC',
-        :conditions => ['time_start >= ? AND time_start <= ?',  @current_date_start, @current_date_end] 
+    @events = Event.find(:all)
         
 
   end
