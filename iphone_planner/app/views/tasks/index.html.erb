@@ -14,7 +14,9 @@
         <!--Increment the date_index and display it if different-->
         <% if c.date != @date_index %>
            <% @date_index = c.date %>
-           <div class="group_title"><%= @date_index.strftime("%a - %b %d")  %></div>
+	     <div class="group_title">
+              <%= link_to @date_index.strftime("%a - %b %d"), {:controller => 'schedules', :action=>'show_day', :year => @date_index.strftime("%Y").to_i, :month => @date_index.strftime("%m").to_i, :day => @date_index.strftime("%d").to_i}, :class => 'white' %>
+           </div> 
         <% end %>
 
         <li>

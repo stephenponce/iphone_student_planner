@@ -4,6 +4,8 @@
     <h1 class="title">New Event</h1>
 </div>
 
+<%= error_messages_for :event, :header_message => "Please Try Again!", :message => "Some of your input is not valid:" %>
+
 <div class='panel'>
 
 <% form_tag({:action => 'create', :selected => 'true'}) do %>

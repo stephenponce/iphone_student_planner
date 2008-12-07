@@ -4,16 +4,18 @@ TD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <title>To Do <%= @current_date%></title>
+  <title>To Do List Mode</title>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
   <meta name="apple-touch-fullscreen" content="YES" />
   
-<!--
-<script type="application/x-javascript" src="/javascripts/iuix.js"></script>
--->
+  <script type="application/x-javascript" src="/javascripts/prototype.js"></script>
+  <script type="application/x-javascript" src="/javascripts/scriptaculous.js"></script>
+  <script type="application/x-javascript" src="/javascripts/calendar_date_select/calendar_date_select.js"></script>
+  <script type="application/x-javascript" src="/javascripts/calendar_date_select/format_american.js"></script>
 
   <%= stylesheet_link_tag 'iui.css' %>
   <%= stylesheet_link_tag 'calendar/blue/style' %>
+  <%= stylesheet_link_tag 'calendar/blue.css' %>
 
   <body>
     <div class="toolbar">
@@ -21,9 +23,16 @@ TD XHTML 1.0 Strict//EN"
 
            <%= link_to 'Calendar', {:controller=>'schedules', :action=>'show_day', :day=>Time.now.day, :month=>Time.now.month, :year=>Time.now.year}, :class => 'calendarTab'  %>
 
-     <%= link_to_remote 'Sort', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>  
+   <!--  <%= link_to_remote 'Sort', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>  -->
+
+           <%= link_to_remote 'Sort', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>  
+
+           <div  id="toolbar_menu" style='display:none'>
+               <br /> 
+               <%= render :partial=>'change_sort'%>
+           </div>
        
-       <%= link_to image_tag("/images/add.png"), {:action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
+       <%= link_to "Add", {:action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
 
 	 	</div>
 	

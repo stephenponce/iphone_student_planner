@@ -9,6 +9,13 @@ include CalendarHelper
   Month_List = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   listOfSpecialDays = ['1','4']
   
+ 
+  def today
+    today_date = Date.today
+    redirect_to :action=>'show_day', :year=>today_date.year, :month=>today_date.month, :day=>today_date.day
+  end
+
+
   def change_view 
     @year = params[:year]
     @month= params[:month]
@@ -48,7 +55,7 @@ include CalendarHelper
     @current_date_start = Time.gm(@year, @month, @day, 0, 0, 0, 0)
     @current_date_end = Time.gm(@year, @month, @day, 23, 59, 59, 0)
     
-   @events = Event.find(:all)
+    @events = Event.find(:all)
    
     #subtract 1 to correctly index the text arrays
     @day_text = Day_List[@month.to_i-1]

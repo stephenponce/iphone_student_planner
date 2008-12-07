@@ -2,7 +2,8 @@
   color:white;
   border:#777 1px solid;
   display:block;
-  width:195px;
+  /*width:195px;*/
+  width: 90%;
   z-index: 1000;
 }
 /* this is a fun ie6 hack to get drop downs to stay behind the popup window.  This should always be just underneath .calendar_date_select */
@@ -21,8 +22,8 @@ iframe.ie6_blocker {
 
 .calendar_date_select .cds_buttons {
   text-align:center;
-  padding:5px 0px;
-  background-color: #000055;
+  padding:6px 0px;
+  background-color: #50586B;
 }
 
 .calendar_date_select .cds_footer {
@@ -42,10 +43,11 @@ iframe.ie6_blocker {
   background-color: #ccc;
   border-bottom: 2px solid #aaa;
   text-align:center;
+  height:26px;
 }
 
 .calendar_date_select .cds_header span {
-  font-size:15px;
+  font-size:22px;
   color: black;
   font-weight: bold;
 }
@@ -56,10 +58,10 @@ iframe.ie6_blocker {
   color: white;
 }
 .calendar_date_select .cds_header a {
-  width:22px;
-  height:20px;
+  width:40px;
+  height:26px;
   text-decoration: none;
-  font-size:14px;
+  font-size:22px;
   color:black !important;
 }
 
@@ -73,7 +75,7 @@ iframe.ie6_blocker {
 
 .calendar_date_select .cds_header a.close {
   float:right;
-  display:none;
+  /*display:none;*/
 }
 
 
@@ -87,19 +89,27 @@ iframe.ie6_blocker {
 
 .calendar_date_select .cds_buttons a {
   color: white;
-  font-size: 9px;
+  font-size: 16px;
+  padding: 5px 20px 5px 10px;
+  -webkit-border-image: url(/images/toolButton.png) 5 5 5 5;
+  border: 1px solid #575769;
+}
+
+.calendar_date_select .cds_buttons select { 
+  font-size:20px;
 }
 
 .calendar_date_select td {
-  background-color: #000066;
-  font-size:12px;
+  background-color: #99A6C5;
+  font-size:16px;
   width: 24px;
-  height: 21px;
+  height: 40px;
   text-align:center;
   vertical-align: middle;
+  border:#777 1px solid;
 }
 .calendar_date_select td.weekend {
-  background-color: #00005a;
+  background-color: #828DA6;
 }
 
 .calendar_date_select td div.other {
@@ -110,7 +120,7 @@ iframe.ie6_blocker {
   border-bottom: 1px solid #000044;
 }
 .calendar_date_select td.selected {
-  background-color:white;
+  background-color: #EEEEEE;
   color:black;
 }
 
@@ -122,9 +132,13 @@ iframe.ie6_blocker {
   color: #000044;
 }
 .calendar_date_select td.today {
-  border: 1px dashed blue;
+  border: 2px solid #EEEEEE;
 }
 
 .fieldWithErrors .calendar_date_select {
   border: 2px solid red;
+}
+
+.calendar_date_select .cds_footer span {
+  font-size:18px;
 }

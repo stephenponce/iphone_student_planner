@@ -11,7 +11,7 @@
  
 <% form_tag '/events/update/'+@event.id.to_s, :selected => 'true' do %>
 
-  <%= render :partial=>'fields', :locals=>{:event=>@event} %>
+  <%= render :partial=>'fields', :locals=>{:event=>@event, :view=>@view} %>
 
 <%= submit_tag "Save Changes", :class => 'whiteButton' %>
 <% end %>

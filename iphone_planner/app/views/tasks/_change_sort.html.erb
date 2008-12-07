@@ -1,0 +1,15 @@
+
+
+<ul  >
+  <li>
+    <%= link_to 'By Due Date', {:controller => 'tasks', :action=>'index'} %>
+  </li>
+
+  <li>
+    <%= link_to 'By Task Title', {:controller => 'tasks', :action=>'by_task'} %>
+  </li>
+
+  <li>
+    <%= link_to 'By Associated Event', {:controller => 'tasks', :action=>'by_event'} %>
+  </li>
+</ul>

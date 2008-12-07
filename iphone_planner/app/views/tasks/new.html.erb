@@ -3,6 +3,7 @@
     <h1 class="title">New Task</h1>
 </div>
 
+<%= error_messages_for 'task' %>
 
 <div class='panel'>
 
@@ -17,7 +18,7 @@
 
     <div class="row">
        <label for="task_date">Date:</label>
-       <%= text_field 'task', 'date' %>
+	 <%= calendar_date_select 'task', 'date', :month_year => "label" %> 
     </div>
 
     <div class="row">
@@ -26,8 +27,8 @@
     </div>
     
     <div class="row">
-       <label for="event_id">Associate w. Event:</label>
-       <%= collection_select :task, :event_id, Event.find(:all), :id, :title %>
+       <label for="event_id">For Event:</label>
+       <%= collection_select :task, :event_id, @event_list, :id, :title, :include_blank => 'None' %>
     </div>
     
 

@@ -31,7 +31,7 @@
 <%= calendar(:abbrev=> (0..1), :table_class=>'calendar_helper', :year => @year.to_i, :month => @month.to_i, :previous_month_text => '', :next_month_text => '') do |d|
     [ 
         if @daysWithEvents.include?(d.mday)
-            link_to d.mday, {:action=>'show_day', :year => @year.to_i, :month => @month.to_i, :day => d.mday}, :style => "background-color:black; font-weight : bold; font-size: larger;" 
+            link_to d.mday, {:action=>'show_day', :year => @year.to_i, :month => @month.to_i, :day => d.mday}, :style => "font-weight : bold; font-size: larger;" 
         else
             link_to d.mday, {:action=>'show_day', :year => @year.to_i, :month => @month.to_i, :day => d.mday}       
         end
@@ -39,7 +39,6 @@
    end
 
  %>
-
 </div>	
 
 

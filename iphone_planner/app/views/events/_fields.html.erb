@@ -9,7 +9,7 @@
   </div>
 
   <div class='row'>
-     <label for="event_location">Location:</label>
+     <label for="event_location">Loc:</label>
      <%= text_field 'event', 'title' %>
   </div>
 
@@ -20,17 +20,16 @@
 
   <div class="row">
      <label for="event_time_start">Begin:</label>
-     <%= text_field 'event', 'time_start' %>
-        <!-- <%= calendar_date_select 'event', 'time_start' %> -->
+     <%= calendar_date_select 'event', 'time_start', :month_year => "label"%>
   </div>
 
   <div class="row">
      <label for="event_time_end">End:</label>
-     <%= text_field 'event', 'time_end' %>
-        <!-- <%= calendar_date_select 'event', 'time_end' %> --> 
+    <%= calendar_date_select 'event', 'time_end', :month_year => "label"%>
   </div>
+
   <div> 
-    Reoccurs:
+    <div class='group_title'>Reoccurs: </div>
 <!--  <%=h @reoccurrences.inspect %> -->
 
   <% for reoccurrence in Reoccurrence.find(:all) %>
@@ -40,8 +39,24 @@
     </div>   
 
   <% end %>
-  </p>
-
-
-
+  </div>
+   
+ <% if @view == 'edit' %>
+  <div class='group_title'>Tasks: </div>
+  <ul id="tasks">
+    <% if (@tasks.empty?) %>
+       None
+    <% else %>
+       <%count = 1%>
+       <% @tasks.each do |t| %>
+         <li>
+         <%= count.to_s + ") "
+            link_to t.title, {:controller => 'tasks', :action => 'edit', :id => t.id} 
+         %>
+       </li>
+       <% count = count + 1 %>
+    <% end %>
+  <% end %>
+  <% end %>
+ </ul>
 </fieldset>

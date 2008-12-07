@@ -45,7 +45,9 @@ class EventsController < ApplicationController
     @event = Event.new
     @day = Time.now.day
     @month = Time.now.month
-    @year = Time.now.year      
+    @year = Time.now.year    
+    
+    @view = 'new'  
     
     @reoccurrences = Reoccurrence.find(:all)
    
@@ -66,7 +68,17 @@ class EventsController < ApplicationController
     @month = Time.now.month
     @year = Time.now.year
 
-   @reoccurrences = @event.reoccurrences
+    @view = 'edit'
+
+    all_tasks = Task.find(:all)
+    @tasks = Array.new
+    all_tasks.each do |t|
+        if (t.event_id.to_i == params[:id].to_i)
+            @tasks.push(t)
+        end
+    end
+
+    @reoccurrences = @event.reoccurrences
    
     logger.info  @reoccurrences
   end
@@ -107,14 +119,11 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   # DELETE /events/1.xml
-  def destroy
+  def delete
     @event = Event.find(params[:id])
     @event.destroy
+    redirect_to :controller=>'date', :year=>Time.now.year, :month=>Time.now.month, :day=>Time.now.day 
 
-    respond_to do |format|
-      format.html { redirect_to(events_url) }
-      format.xml  { head :ok }
-    end
   end
 
 

@@ -111,7 +111,7 @@ CalendarDateSelect.prototype = {
     if ( (( e_bottom + c_height ) > (w_top + w_height)) && ( e_bottom - c_height > w_top )) above = true;
     var left_px = e_left.toString() + "px", top_px = (above ? (e_top - c_height ) : ( e_top + e_height )).toString() + "px";
     
-    this.calendar_div.style.left = left_px;  this.calendar_div.style.top = top_px;
+    this.calendar_div.style.left = 0;  this.calendar_div.style.top = window.f_scrollTop().toString() + "px";
     
     this.calendar_div.setStyle({visibility:""});
     

@@ -1,0 +1,44 @@
+
+<div class='modebar'>
+   <h1>To Do List</h1>
+</div>
+
+<% if @tasks.blank? %>
+  <p>Your task list is empty.</p>
+
+<% else %>
+
+  <ul id="tasks">
+    <% @events.each do |e| %>
+
+       <div class="group_title">
+         <%= link_to e.title, {:controller => 'events', :action=>'edit', :id => e.id}, :class => 'white' %>
+       </div> 
+       <%@tasks.each do |t| %>
+         <% if (t.event_id == e.id) %>
+           <li>
+              <% if t.date < Date.today %>
+                 <%= link_to t.title, {:action => 'edit', :id => t.id}, :target => '_self', :class => 'old' -%>  
+              <% else %> 
+                 <%= link_to t.title, {:action => 'edit', :id => t.id}, :target => '_self' -%>   
+              <% end %>
+           </li>
+         <%end%>
+       <%end%>
+    <% end %>
+    
+    <div class="group_title">
+       <%= "No Event" %>
+    </div> 
+       <%@tasks_no_event.each do |t| %>
+           <li>
+              <% if t.date < Date.today %>
+                 <%= link_to t.title, {:action => 'edit', :id => t.id}, :target => '_self', :class => 'old' -%>  
+              <% else %> 
+                 <%= link_to t.title, {:action => 'edit', :id => t.id}, :target => '_self' -%>   
+              <% end %>
+           </li>
+       <%end%>
+
+  </ul>
+<% end %>

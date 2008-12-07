@@ -28,8 +28,10 @@
   <ul>
     <% @dates.each do |c| %>
 
-        <div class="group_title"><%= c.strftime("%A - %m/%d") %></div>
- 
+        <div class="group_title">
+           <%= link_to c.strftime("%A - %m/%d"), {:action=>'show_day', :year => c.strftime("%Y").to_i, :month => c.strftime("%m").to_i, :day => c.strftime("%d").to_i}, :class => 'white' %>
+        </div> 
+
         <li>  
            <% @events.each do |e| 
                if (e.occurs_today?(c.year, c.month, c.day)) %>

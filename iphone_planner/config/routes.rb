@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :reoccurrences, :active_scaffold => true
 
-  map.resources :tasks
+  #map.resources :tasks
 
   map.resources :schedules
 
@@ -59,7 +59,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "welcome"
+  map.root :controller => "schedules", :action => "today"
 
   # See how all your routes lay out with "rake routes"
 

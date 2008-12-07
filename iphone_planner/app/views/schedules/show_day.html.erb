@@ -47,11 +47,8 @@
       <% if c.occurs_today?(@year, @month, @day) %>
         <div class="group_title"><%= c.time_start.strftime("%I:%M %p") + ' - ' + c.time_end.strftime("%I:%M %p") %></div>
 
- 
-        <li>
-       <!-- <%= link_to c.time_start.strftime("%I:%M %p") + ' - ' + c.title, {:controller => 'events', :action => 'edit', :id => c.id}, :target => '_self' -%>   -->   
-
-        <%= link_to c.title, {:controller => 'events', :action => 'edit', :id => c.id}, :target => '_self'  %>
+        <li class='with_text'>
+        <%= link_to "<div class='event_link'>" + c.title + " " + "<span class='small_text'>" + c.description + "</span></div>", {:controller => 'events', :action => 'edit', :id => c.id}, :target => '_self'  %>
         </li>
       <% end %>
 

@@ -45,7 +45,7 @@ class CalendarDateSelect
   @@image = "calendar_date_select/calendar.gif"
   
   cattr_reader :format
-  @@format = FORMATS[:natural]
+  @@format = FORMATS[:american]
   
   class << self
     def format=(format)
@@ -177,25 +177,35 @@ class CalendarDateSelect
       )
     end  
     
-    def calendar_date_select_output(input, calendar_options = {})
-      out = input
-      if calendar_options[:embedded]
-        uniq_id = "cds_placeholder_#{(rand*100000).to_i}"
-        # we need to be able to locate the target input element, so lets stick an invisible span tag here we can easily locate
-        out << content_tag(:span, nil, :style => "display: none; position: absolute;", :id => uniq_id)
-        
-        out << javascript_tag("new CalendarDateSelect( $('#{uniq_id}').previous(), #{options_for_javascript(calendar_options)} ); ")
-      else
-        out << " "
-        
-        out << image_tag(CalendarDateSelect.image, 
-            :onclick => "new CalendarDateSelect( $(this).previous(), #{options_for_javascript(calendar_options)} );",
-            :style => 'border:0px; cursor:pointer;')
-      end
-      
+    #def calendar_date_select_output(input, calendar_options = {})
+    #  out = input
+    #  if calendar_options[:embedded]
+    #    uniq_id = "cds_placeholder_#{(rand*100000).to_i}"
+    #    # we need to be able to locate the target input element, so lets stick an invisible span tag here we can easily locate
+    #    out << content_tag(:span, nil, :style => "display: none; position: absolute;", :id => uniq_id)
+    #    
+    #    out << javascript_tag("new CalendarDateSelect( $('#{uniq_id}').previous(), #{options_for_javascript(calendar_options)} ); ")
+    #  else
+    #    out << " "
+    #    
+    #    out << image_tag(CalendarDateSelect.image, 
+    #        :onclick => "new CalendarDateSelect( $(this).previous(), #{options_for_javascript(calendar_options)} );",
+    #        :style => 'border:0px; cursor:pointer;')
+    #  end
+    #  
+    #  out
+    #end 
+
+    def calendar_date_select_output(input, calendar_options = {})  
+      out = image_tag(CalendarDateSelect.image, 
+          :onclick => "new CalendarDateSelect( $(this).next(), #{options_for_javascript(calendar_options)} );",
+          :style => 'border:0px; cursor:pointer;')
+      out << " "
+      out << input
       out
     end
-    
+  
+
   private
     def format_year_range(year) # nodoc
       return year unless year.respond_to?(:first)

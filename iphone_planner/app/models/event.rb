@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   has_many :tasks
   has_and_belongs_to_many :reoccurrences
 
-  
+  validates_presence_of :title, :time_start, :time_end, :message => "missing required field"
 
   
   def to_ics

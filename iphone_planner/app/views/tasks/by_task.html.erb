@@ -1,0 +1,24 @@
+
+<div class='modebar'>
+   <h1>To Do List</h1>
+</div>
+
+<% if @tasks.blank? %>
+  <p>Your task list is empty.</p>
+
+
+<% else %>
+  <ul id="tasks">
+    <% @tasks.each do |c| %>
+
+        <li>
+            <% if c.date < Date.today %>
+                <%= link_to c.title, {:action => 'edit', :id => c.id}, :target => '_self', :class => 'old' -%>  
+            <% else %> 
+                <%= link_to c.title, {:action => 'edit', :id => c.id}, :target => '_self' -%>   
+            <% end %>
+        </li>
+
+    <% end %>
+  </ul>
+<% end %>
