@@ -117,17 +117,18 @@ include CalendarHelper
       else 
          @endDate = Date.civil(@year.to_i, @month.to_i, 31)
       end                      
-      @events = Event.find :all, :order => 'time_start ASC',
-           :conditions => ['time_start >= ? AND time_start <= ?',  @startDate, @endDate]
-      
-      @daysWithEvents = Array.new
-      @day = 1
-      @events.each do |e|
-         if (e.occurs_today?(@year, @month, @day))           
-             @daysWithEvents.push(e.time_start.strftime("%d").to_i) 
-             @day = e.time_start.strftime("%d").to_i 
-         end  
-      end
+      @events = Event.find( :all, :order => 'time_start ASC')
+     
+     @daysWithEvents = Array.new
+     # @curr_date = 1
+     # while @curr_date <= @endDate.day
+     #   @events.each do |e|
+     #      if (e.occurs_today?(@year, @month, @day))           
+     #          @daysWithEvents.push(@day)
+     #          @day++ e.time_start.strftime("%d").to_i 
+     #      end  
+     #   end
+     # end
 
   end
 

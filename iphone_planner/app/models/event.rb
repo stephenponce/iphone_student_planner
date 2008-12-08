@@ -56,7 +56,7 @@ class Event < ActiveRecord::Base
     if self.time_start.nil?
       return false
     end
-      
+    
 
     # Encapsulates the entire day from midnight to 1159 pm
     curr_date_start = Time.gm(year, month, day, 0, 0, 0, 0)
@@ -65,40 +65,47 @@ class Event < ActiveRecord::Base
     if (self.reoccurrences.empty?)
      #REturns true if the event occurs between 12am and 1159pm on the current date
       return ((self.time_start >= curr_date_start) && ( curr_date_end >= self.time_start))
-    else
+
+    #if the current date is before the reoccurs until date continue with the cases
+    elsif (self.reoccurs_until.nil? || self.reoccurs_until > curr_date_end.to_date)
+      
         #base case
         if ((self.time_start >= curr_date_start) && ( curr_date_end >= self.time_start))
           return true
 
         #daily case:
         #   =>  this assumes daily means every day of the week without exceptions
-        elsif (self.reoccurrences[0].frequency == 'daily')
+        elsif (self.reoccurrences[0].frequency.downcase == 'daily')
           return true
 
         #weekly case:
         #   => check what the day is and see if the reoccurrences occurs onthat day          
-        elsif (self.reoccurrences[0].frequency == 'weekly')
+        elsif (self.reoccurrences[0].frequency.downcase == 'weekly')
             curr_day = curr_date_start.strftime("%A")
           return  self.reoccurrences[0].occurs_on_this_day?(curr_day)
 
+	#monthly case:    
+	#   => check what the day is from the original event occurred on
+	#   => check what the day of the curr_date is
+	elsif (self.reoccurrences[0].frequency.downcase == 'monthly')
+	  original_day = self.time_start.strftime("%d")
+	  curr_day = curr_date_start.strftime("%d")
+
+	  if (original_day == curr_day)
+	    return true   
+	  else
+	    return false
+	  end
+
         end
-      
+
+                     
     end
-                      
 
   end
 
 
 end
-#monthly case:    
-#   => check what the day is from the original event occurred on
-#   => check what the day of the curr_date is
-#elsif (self.reoccurrences[0].frequency == 'monthly')
-#  original_day = self.time_start.strftime("%A")
-#  curr_day = curr_date_start.strftime("%A")
-  # if the two days are the same we can calculate the week they occurred on
-#  if (original_day == curr_day)
-#    return true   
     #EXTRA CODE THAT GOES IN THE MONTHLY CASE OF OCCURS_TODAY
                 #check reoccurrence week with event week of month
     #            if(self.reoccurrences[0].week_of_month = self.week_of_month)

@@ -28,17 +28,31 @@
   <div> 
     <div class='group_title'>Reoccurs: </div>
 <!--  <%=h @reoccurrences.inspect %> -->
-  <!--DROP DOWN FOR REOCCURRENCES -->
+<!--RADIO BUTTONS FOR REOCCURRENCES -->
+ <% for reoccurrence in Reoccurrence.find(:all) %>
+    <div class= 'row' >
+      <label for="event_time_end"><%= reoccurrence.title %></label>
+      <%= radio_button_tag 'event[reoccurrence_ids][]', reoccurrence.id, @event.reoccurrences.include?(reoccurrence) %>
+    </div>
+ <% end %>
+  <!-- DROP DOWN FOR REOCCURRENCES 
     <div class= 'row' >
       <label for="reoccurrence_freq">How Often: </label>
-       <%= collection_select :event, :reoccurence_id, @reoccurrence_list, :id, :title %>
+       = collection_select_tag 'event[reoccurrence_ids][]', reoccurrence.id, @reoccurrence_list, id, title 
     </div>
+-->
+
     <div class= 'row' >
+      <label for="reoccurs_until">Until: </label>
+        <%= calendar_date_select 'event', 'reoccurs_until', :month_year => "label"%>
+    </div>
+<!--    <div class= 'row' >
        <label for='custom_reoccurrence'> Customize: </label>
        <%= link_to 'Edit', {:controller=>'reoccurrences', :action=>'index'}, :class=>'edit_reocc_button' %>
        
        <%= link_to 'New', {:controller=>'reoccurrences', :action=>'new'}, :class=>'new_reocc_button' %>
     </div>   
+-->
   </div>
    
  <% if @view == 'edit' %>
