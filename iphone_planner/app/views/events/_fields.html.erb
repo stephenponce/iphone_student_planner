@@ -29,7 +29,7 @@
     <div class='group_title'>Reoccurs: </div>
 <!--  <%=h @reoccurrences.inspect %> -->
 <!--RADIO BUTTONS FOR REOCCURRENCES -->
- <% for reoccurrence in Reoccurrence.find(:all) %>
+ <% for reoccurrence in @reoccurrence_list %>
     <div class= 'row' >
       <label for="event_time_end"><%= reoccurrence.title %></label>
       <%= radio_button_tag 'event[reoccurrence_ids][]', reoccurrence.id, @event.reoccurrences.include?(reoccurrence) %>

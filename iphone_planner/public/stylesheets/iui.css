@@ -477,6 +477,15 @@ input[type='checkbox']{
 	background-color:#3366aa;
 	margin-right:10px;
 }
+input[type='radio']{
+	width:30px;
+	background-color:#33666aa;
+	margin-right:10px;
+}
+input[type='radio']:selected{
+	background-color:#555;
+}
+
 input[type='checkbox']:checked{
 	background-color:#555;
 }
