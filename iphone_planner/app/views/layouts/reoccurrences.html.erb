@@ -1,20 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//D
+TD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Reoccurrences: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
-  <%= javascript_include_tag :defaults %>
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <title>Reoccurrences</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  <meta name="apple-touch-fullscreen" content="YES" />
+  	
+  <script type="application/x-javascript" src="/javascripts/prototype.js"></script>
+  <script type="application/x-javascript" src="/javascripts/iui-small.js"></script>
+  <script type="application/x-javascript" src="/javascripts/scriptaculous.js"></script>
   
-</head>
-<body>
+  <%= stylesheet_link_tag 'iui.css' %>
+  </head>
+  <body>
+    <div class="toolbar">
+        <h1 id="pageTitle"></h1>
+	  <%= link_to "Add", {:controller=>'reoccurrences', :action => 'new' }, :class => "button", :target => '_self', :border => 0 %> 
+<!--	  <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'leftButton', :target=>'_self' %>  -->
 
-<p style="color: green"><%= flash[:notice] %></p>
+      <%= link_to 'To Do', {:controller=>'tasks', :action=>'index'}, :class => 'toDoTab' %>
 
-<%= yield  %>
+      <%= link_to 'Calendar', {:controller=>'schedules', :action=>'show_day', :day=>Time.now.day, :month=>Time.now.month, :year=>Time.now.year}, :class => 'calendarTab' , :id=>'selected' %>
+      
+<%= link_to_remote 'Views', {:after => "(Element.toggle('toolbar_menu'))", :url=>{:controller=>'schedules', :action=>'change_view'}}, :class => 'leftButton' %>  
+
+    <div  id="toolbar_menu" style='display:none'>
+        <br />
+        <%= render :partial=>'schedules/change_view'%>
+    </div>
+  </div>
+	
+    <%= yield %>
 
 </body>
 </html>

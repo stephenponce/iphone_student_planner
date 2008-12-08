@@ -1,0 +1,59 @@
+
+<%= f.error_messages %>
+<fieldset>
+  <div class='row'>
+    <label for= 'Title'> Title: </label>
+    <%= f.text_field :title %>
+    <%= f.hidden_field :frequency, :value=> 'Weekly' %>
+  </div>
+  <div class='row'>
+    <label for= 'occurs'>   Occurs Every  </label>
+ </div>
+ <div class='row'>
+  <ul class='day_list'>
+   <li>
+   <%=f.check_box :sunday %>
+   <label>
+     Sunday
+   </label>
+   </li>
+   <li>
+   <%= f.check_box :monday %>
+   <label>
+     Monday
+   </label>
+   </li>
+   <li>
+   <%= f.check_box :tuesday %>
+   <label>
+     Tuesday
+   </label>
+   </li>
+   <li>
+   <%= f.check_box :wednesday %>
+   <label>
+     Wednesday
+   </label>
+   </li>
+   <li>
+   <%= f.check_box :thursday %>
+   <label>
+     Thursday
+   </label>
+   </li>
+   <li>
+   <%= f.check_box :friday %>
+   <label>
+    Friday
+   </label>
+   </li>
+   <li>
+   <%= f.check_box :saturday %>
+   <label>
+     Saturday  
+   </label>
+   </li>
+ </ul>
+ </div>
+</fieldset>
+<%= f.submit "Create" %>

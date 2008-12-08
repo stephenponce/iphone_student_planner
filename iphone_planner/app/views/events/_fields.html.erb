@@ -1,6 +1,3 @@
-<script type="text/javascript">
-  var oButtonGroup1 = new YAHOO.widget.ButtonGroup("buttongroup1") 
-</script>
 <fieldset>
 
   <div class="row">
@@ -31,14 +28,17 @@
   <div> 
     <div class='group_title'>Reoccurs: </div>
 <!--  <%=h @reoccurrences.inspect %> -->
-
-  <% for reoccurrence in Reoccurrence.find(:all) %>
+  <!--DROP DOWN FOR REOCCURRENCES -->
     <div class= 'row' >
-      <label for="event_time_end"><%= reoccurrence.title %></label>
-      <%= radio_button_tag 'event[reoccurrence_ids][]', reoccurrence.id, @event.reoccurrences.include?(reoccurrence) %>
+      <label for="reoccurrence_freq">How Often: </label>
+       <%= collection_select :event, :reoccurence_id, @reoccurrence_list, :id, :title %>
+    </div>
+    <div class= 'row' >
+       <label for='custom_reoccurrence'> Customize: </label>
+       <%= link_to 'Edit', {:controller=>'reoccurrences', :action=>'index'}, :class=>'edit_reocc_button' %>
+       
+       <%= link_to 'New', {:controller=>'reoccurrences', :action=>'new'}, :class=>'new_reocc_button' %>
     </div>   
-
-  <% end %>
   </div>
    
  <% if @view == 'edit' %>

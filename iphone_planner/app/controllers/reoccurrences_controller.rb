@@ -4,7 +4,9 @@ class ReoccurrencesController < ApplicationController
   # GET /reoccurrences
   # GET /reoccurrences.xml
   def index
-    @reoccurrences = Reoccurrence.find(:all)
+
+    #gets reoccurrences other than once and monthly
+    @reoccurrences = Reoccurrence.find(:all, :order=> "frequency, title", :conditions=>['frequency!=? AND frequency!=?', "Once","Monthly"] )
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,8 +48,7 @@ class ReoccurrencesController < ApplicationController
 
     respond_to do |format|
       if @reoccurrence.save
-        flash[:notice] = 'Reoccurrence was successfully created.'
-        format.html { redirect_to(@reoccurrence) }
+        format.html { redirect_to( :controller=>'event', :action=>'edit', :id=>'@event_id') }
         format.xml  { render :xml => @reoccurrence, :status => :created, :location => @reoccurrence }
       else
         format.html { render :action => "new" }

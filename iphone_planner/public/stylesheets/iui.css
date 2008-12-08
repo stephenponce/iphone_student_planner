@@ -120,7 +120,10 @@ body > .modebar {
     white-space: nowrap;
     color: #000000;
 }
+.modebar > h1.title_small {
+    font-size: 15px;
 
+}
 body[orient="landscape"] > .toolbar > h1 {
     margin-left: -125px;
     width: 250px;
@@ -176,6 +179,52 @@ body[orient="landscape"] > .toolbar > h1 {
     background: none;
     -webkit-border-image: url(/images/toolButton.png) 0 5 0 5;
 }
+
+.new_reocc_button {
+    position: absolute;
+    overflow: hidden;
+    top:5px;
+    right: 70px;
+    margin: 0;
+    border-width: 0 5px;
+    padding: 0 3px;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    white-space: nowrap;
+    background: none;
+    -webkit-border-image: url(/images/toolButton.png) 0 5 0 5;
+}
+.edit_reocc_button {
+    position: absolute;
+    overflow: hidden;
+    top:5px;
+    right: 6px;
+    margin: 0;
+    border-width: 0 5px;
+    padding: 0 3px;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    white-space: nowrap;
+    background: none;
+    -webkit-border-image: url(/images/toolButton.png) 0 5 0 5;
+}
+
 #selected{
 	background: none;
     -webkit-border-image: url(/images/toolButton_selected.png) 0 5 0 5;
@@ -422,7 +471,15 @@ input {
     font-size: 16px;
     font-weight: normal;
 }
-
+input[type='checkbox']{
+	width:30px;
+	height:30px;
+	background-color:#3366aa;
+	margin-right:10px;
+}
+input[type='checkbox']:checked{
+	background-color:#555;
+}
 .row > input[type='radio'] {
     padding: 0px;
     margin: 8px;
@@ -498,7 +555,20 @@ fieldset > .title {
     background: none;
     background-color: #FFFFFF;
 }
-
+.row > ul.day_list{
+	text-align:left;
+	margin:0px;
+	padding:0px;
+	font-size:13px;
+}
+ul.day_list li > label{
+	font-size:16px;
+	line-height:20px;
+}
+h3.occurs_on{
+	margin:5px;
+	text-align:center;
+}
 .row > label {
     position: absolute;
     margin: 0 0 0 6px;

@@ -48,12 +48,23 @@ class EventsController < ApplicationController
     @year = Time.now.year    
     
     @view = 'new'  
+    #gets the first reoccurrence
+    @once_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Once" ])
+    @monthly_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Monthly" ])
+
+    #create list and push Once onto the top
+    @reoccurrence_list = Array.new
+    @reoccurrence_list.push(@once_reocc)
+
+
+    #gets other reoccurrences
+    @other_reocc= Reoccurrence.find(:all, :order=> "frequency, title", :conditions=>['frequency!=? AND frequency!=?', "Once","Monthly"] )
+
+    @other_reocc.each do |r|
+      @reoccurrence_list.push(r)
+    end
+    @reoccurrence_list.push(@monthly_reocc)
     
-    @reoccurrences = Reoccurrence.find(:all)
-   
-    
-    
-    @frequency_list=['once', 'daily','weekly','monthly']
 
     respond_to do |format|
       format.html # new.html.erb
@@ -69,6 +80,25 @@ class EventsController < ApplicationController
     @year = Time.now.year
 
     @view = 'edit'
+#gets the first reoccurrence
+    @once_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Once" ])
+    @monthly_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Monthly" ])
+
+    #create list and push Once onto the top
+    @reoccurrence_list = Array.new
+    @reoccurrence_list.push(@once_reocc)
+
+
+    #gets other reoccurrences
+    @other_reocc= Reoccurrence.find(:all, :order=> "frequency, title", :conditions=>['frequency!=? AND frequency!=?', "Once","Monthly"] )
+
+    @other_reocc.each do |r|
+      @reoccurrence_list.push(r)
+    end
+    @reoccurrence_list.push(@monthly_reocc)
+
+
+
 
     all_tasks = Task.find(:all)
     @tasks = Array.new
@@ -78,7 +108,7 @@ class EventsController < ApplicationController
         end
     end
 
-    @reoccurrences = @event.reoccurrences
+  @reoccurrence_list = @event.reoccurrences
    
     logger.info  @reoccurrences
   end

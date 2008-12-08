@@ -1,41 +1,14 @@
-<h1>Listing reoccurrences</h1>
+<div class='modebar'>
+    <%= link_to 'Back', :back, :class => 'leftButton'%>
+    <h1 class="title">Reoccurrences</h1>
+</div>
 
-<table>
-  <tr>
-    <th>Frequency </th>
-  
-    <th>Title </th>
-    
-    
-    <th> Su </th>
-    <th> M</th>
-    <th> T</th>  
-    <th> W</th>
-    <th> Th</th>
-    <th> F</th>
-    <th> S</th>
-  </tr>
-
-<% for reoccurrence in @reoccurrences %>
-  <tr>
-    <td><%= reoccurrence.frequency %></td>
-    <td><%= reoccurrence.title %></td>
-    
-    <td><%= reoccurrence.su %></td>
-    <td><%=reoccurrence.m %></td>
-    <td><%=reoccurrence.t %></td>
-    <td><%=reoccurrence.w %></td>
-    <td><%=reoccurrence.th %></td>
-    <td><%=reoccurrence.f %></td>
-    <td><%=reoccurrence.s %></td>
-    
-    <td><%= link_to 'Show', reoccurrence %></td>
-    <td><%= link_to 'Edit', edit_reoccurrence_path(reoccurrence) %></td>
-    <td><%= link_to 'Destroy', reoccurrence, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+<ul id='reoccurrences'>
+  <%  @reoccurrences.each do |r| %>
+    <li class='with_text'>
+      <%= link_to "<div class='event_link'>"+ r.title+ "</div>",
+	 { :controller => 'reoccurrences', :action => 'edit', :id => r.id } %>
+    </li>
+  <% end %>
+</ul>
 <br />
-
-<%= link_to 'New reoccurrence', new_reoccurrence_path %>

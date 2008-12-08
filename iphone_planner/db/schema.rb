@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081128233056) do
+ActiveRecord::Schema.define(:version => 20081207230410) do
 
   create_table "events", :force => true do |t|
     t.datetime "created_at"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20081128233056) do
     t.boolean  "reoccuring_event"
     t.string   "reoccurs_on"
     t.string   "frequency"
+    t.integer  "reoccurence_id"
   end
 
   create_table "events_reoccurrences", :id => false, :force => true do |t|
