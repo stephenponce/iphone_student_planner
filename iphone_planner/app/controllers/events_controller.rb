@@ -80,23 +80,12 @@ class EventsController < ApplicationController
     @year = Time.now.year
 
     @view = 'edit'
-#gets the first reoccurrence
+    #gets the first reoccurrence
     @once_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Once" ])
     @monthly_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Monthly" ])
 
     #create list and push Once onto the top
-    @reoccurrence_list = Array.new
-    @reoccurrence_list.push(@once_reocc)
-
-
-    #gets other reoccurrences
-    @other_reocc= Reoccurrence.find(:all, :order=> "frequency, title", :conditions=>['frequency!=? AND frequency!=?', "Once","Monthly"] )
-
-    @other_reocc.each do |r|
-      @reoccurrence_list.push(r)
-    end
-    @reoccurrence_list.push(@monthly_reocc)
-
+    @reoccurrence_list = Reoccurrence.find(:all)
 
 
 
