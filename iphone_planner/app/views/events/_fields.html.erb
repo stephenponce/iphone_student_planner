@@ -43,7 +43,39 @@
 
       <div class= 'row' >
         <label for="event_time_end"> How Often: </label>
-        <%= collection_select(:event, :reoccurrence_id, @reoccurrence_list, :id, :title) %>
+<%
+    #gets the first reoccurrence
+    once_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Once" ])
+    monthly_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Monthly" ])
+    su_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Sunday" ])
+    m_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Monday" ])
+    t_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Tuesday" ])
+    w_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Wednesday" ])
+    th_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Thursday" ])
+    f_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Friday" ])
+    sa_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Saturday" ])
+
+    #create list and push Once onto the top
+    reoccurrence_list = Array.new
+    reoccurrence_list.push(once_reocc)
+    reoccurrence_list.push(su_reocc)
+    reoccurrence_list.push(m_reocc)
+    reoccurrence_list.push(t_reocc)
+    reoccurrence_list.push(w_reocc)
+    reoccurrence_list.push(th_reocc)
+    reoccurrence_list.push(f_reocc)
+    reoccurrence_list.push(sa_reocc)
+
+    #gets other reoccurrences
+    other_reocc= Reoccurrence.find(:all, :order=> "frequency, title", :conditions=>['frequency!=? AND frequency!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=?', "Once","Monthly","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] )
+
+    other_reocc.each do |r|
+      reoccurrence_list.push(r)
+    end
+    reoccurrence_list.push(monthly_reocc)
+%>
+
+        <%= collection_select(:event, :reoccurrence_id, reoccurrence_list, :id, :title) %>
       </div>
 
     </div>
