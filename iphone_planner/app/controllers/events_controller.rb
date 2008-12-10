@@ -51,14 +51,27 @@ class EventsController < ApplicationController
     #gets the first reoccurrence
     @once_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Once" ])
     @monthly_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Monthly" ])
+    @su_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Sunday" ])
+    @m_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Monday" ])
+    @t_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Tuesday" ])
+    @w_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Wednesday" ])
+    @th_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Thursday" ])
+    @f_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Friday" ])
+    @sa_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Saturday" ])
 
     #create list and push Once onto the top
     @reoccurrence_list = Array.new
     @reoccurrence_list.push(@once_reocc)
-
+    @reoccurrence_list.push(@su_reocc)
+    @reoccurrence_list.push(@m_reocc)
+    @reoccurrence_list.push(@t_reocc)
+    @reoccurrence_list.push(@w_reocc)
+    @reoccurrence_list.push(@th_reocc)
+    @reoccurrence_list.push(@f_reocc)
+    @reoccurrence_list.push(@sa_reocc)
 
     #gets other reoccurrences
-    @other_reocc= Reoccurrence.find(:all, :order=> "frequency, title", :conditions=>['frequency!=? AND frequency!=?', "Once","Monthly"] )
+    @other_reocc= Reoccurrence.find(:all, :order=> "frequency, title", :conditions=>['frequency!=? AND frequency!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=?', "Once","Monthly","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] )
 
     @other_reocc.each do |r|
       @reoccurrence_list.push(r)
@@ -83,10 +96,32 @@ class EventsController < ApplicationController
     #gets the first reoccurrence
     @once_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Once" ])
     @monthly_reocc=Reoccurrence.find(:first, :conditions=> ['frequency=?', "Monthly" ])
+    @su_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Sunday" ])
+    @m_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Monday" ])
+    @t_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Tuesday" ])
+    @w_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Wednesday" ])
+    @th_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Thursday" ])
+    @f_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Friday" ])
+    @sa_reocc=Reoccurrence.find(:first, :conditions=> ['title=?', "Saturday" ])
 
     #create list and push Once onto the top
-    @reoccurrence_list = Reoccurrence.find(:all)
+    @reoccurrence_list = Array.new
+    @reoccurrence_list.push(@once_reocc)
+    @reoccurrence_list.push(@su_reocc)
+    @reoccurrence_list.push(@m_reocc)
+    @reoccurrence_list.push(@t_reocc)
+    @reoccurrence_list.push(@w_reocc)
+    @reoccurrence_list.push(@th_reocc)
+    @reoccurrence_list.push(@f_reocc)
+    @reoccurrence_list.push(@sa_reocc)
 
+    #gets other reoccurrences
+    @other_reocc= Reoccurrence.find(:all, :order=> "frequency, title", :conditions=>['frequency!=? AND frequency!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=? AND title!=?', "Once","Monthly","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"] )
+
+    @other_reocc.each do |r|
+      @reoccurrence_list.push(r)
+    end
+    @reoccurrence_list.push(@monthly_reocc)
 
 
     all_tasks = Task.find(:all)
@@ -97,7 +132,7 @@ class EventsController < ApplicationController
         end
     end
 
-  @reoccurrence_list = @event.reoccurrences
+    #@reoccurrence_list = @event.reoccurrences
    
     logger.info  @reoccurrences
   end
@@ -109,8 +144,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        flash[:notice] = 'Event was successfully created.'
-        format.html { redirect_to :controller=>'schedules', :action => 'show_day', :year=>Time.now.year, :month=>Time.now.month, :day=>Time.now.day}
+        format.html { redirect_to :controller=>'schedules', :action => 'show_day', :year=>@event.time_start.year, :month=>@event.time_start.month, :day=>@event.time_start.day }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
         format.html { render :action => "new" }
@@ -126,8 +160,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        flash[:notice] = 'Event was successfully updated.'
-        format.html { redirect_to :controller=>'date', :year=>Time.now.year, :month=>Time.now.month, :day=>Time.now.day }
+        format.html { redirect_to :controller=>'date', :year=>@event.time_start.year, :month=>@event.time_start.month, :day=>@event.time_start.day }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20081208031141) do
   end
 
   create_table "tasks", :force => true do |t|
-    t.string   "title",       :limit => 64, :null => false
+    t.string   "title"
     t.text     "description"
     t.date     "date"
     t.integer  "event_id"

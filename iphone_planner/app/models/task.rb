@@ -1,8 +1,7 @@
 class Task < ActiveRecord::Base
-
   belongs_to :event
   
-  validates_presence_of :title, :date, :message => "missing required field"
+  validates_presence_of :title, :date, :message => "is a required field"
   
   def self.find_by_event_id(event_id)
    if event_id != nil

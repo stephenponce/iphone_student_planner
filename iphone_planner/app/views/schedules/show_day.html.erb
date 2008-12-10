@@ -36,15 +36,13 @@
     end 
 %>  		
   </div>
-<% if @events.blank? %>
-  <p>You have no events for this date.</p>
 
-
-<% else %>
+  <% no_events = 1 %>
   <ul id="events">
 
     <% @events.each do |c| %>
       <% if c.occurs_today?(@year, @month, @day) %>
+        <% no_events = 0 %>
         <div class="group_title"><%= c.time_start.strftime("%I:%M %p") + ' - ' + c.time_end.strftime("%I:%M %p") %></div>
 
         <li class='with_text'>
@@ -54,6 +52,9 @@
 
     <% end %>
   </ul>
+
+<% if (no_events == 1) %>
+  <p class="no_events">You have nothing <br /> scheduled for this date.</p>
 <%end%>
 
 

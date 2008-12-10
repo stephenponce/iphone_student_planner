@@ -7,9 +7,13 @@
     <h1 class="title">Edit Event</h1>
 </div>
 
+
+
 <div class='panel'>
  
 <% form_tag '/events/update/'+@event.id.to_s, :selected => 'true' do %>
+
+  <%= error_messages_for :event, :header_message => "Please Try Again!", :message => "Some of your input is not valid:" %>
 
   <%= render :partial=>'fields', :locals=>{:event=>@event, :view=>@view} %>
 

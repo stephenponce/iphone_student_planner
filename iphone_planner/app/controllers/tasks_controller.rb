@@ -29,8 +29,9 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new    
-    @event_list = Event.find(:all, :order=>'title ASC')
-    @event_list.sort! { |a,b| a.title.downcase <=> b.title.downcase}
+    #@event_list = Event.find(:all, :order=>'title ASC')
+    #@event_list_sorted = @event_list.sort { |a,b| a.title.downcase <=> b.title.downcase}
+
   end
   
   def create
@@ -44,8 +45,8 @@ class TasksController < ApplicationController
   
   def edit
     @task = Task.find(params[:id])
-    @event_list = Event.find(:all, :order=>'title ASC')
-    @event_list.sort! { |a,b| a.title.downcase <=> b.title.downcase}
+    #@event_list = Event.find(:all, :order=>'title ASC')
+    #@event_list.sort! { |a,b| a.title.downcase <=> b.title.downcase}
   end
  
   def update

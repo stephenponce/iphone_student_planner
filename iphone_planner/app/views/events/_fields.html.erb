@@ -1,5 +1,7 @@
 <fieldset>
 
+  <div class='group_title'>General Information: </div>
+
   <div class="row">
      <label for="event_title">Title:</label>
      <%= text_field 'event', 'title' %>
@@ -7,7 +9,7 @@
 
   <div class='row'>
      <label for="event_location">Loc:</label>
-     <%= text_field 'event', 'title' %>
+     <%= text_field 'event', 'location_name' %>
   </div>
 
   <div class="row">
@@ -16,7 +18,7 @@
   </div>
 
   <div class="row">
-     <label for="event_time_start">Begin:</label>
+     <label for="event_time_start">Start:</label>
      <%= calendar_date_select 'event', 'time_start', :month_year => "label"%>
   </div>
 
@@ -24,25 +26,36 @@
      <label for="event_time_end">End:</label>
     <%= calendar_date_select 'event', 'time_end', :month_year => "label"%>
   </div>
+
   <div>
+    <br />
     <div class='group_title'>Reoccurs: </div>
-<!--  <%=h @reoccurrences.inspect %> -->
-  
-  <% for reoccurrence in Reoccurrence.find(:all) %>
-    <div class= 'row' >
-      <label for="event_time_end"><%= reoccurrence.title %></label>
-      <%= radio_button_tag 'event[reoccurrence_ids][]', reoccurrence.id, @event.reoccurrences.include?(reoccurrence) %>
-    </div>
+
+  <div id=reoccurrence_info>
+   <!-- < for reoccurrence in Reoccurrence.find(:all) %>
+      <div class= 'row' >
+        <label for="event_time_end"><= reoccurrence.title %></label>
+        <= radio_button_tag 'event[reoccurrence_ids][]', reoccurrence.id, @event.reoccurrences.include?(reoccurrence) %>
+      </div>
      
-  <% end %>
-  </div>
+    < end %>
+  -->
 
+      <div class= 'row' >
+        <label for="event_time_end"> How Often: </label>
+        <%= collection_select(:event, :reoccurrence_id, @reoccurrence_list, :id, :title) %>
+      </div>
+
+    </div>
 
     <div class= 'row' >
-      <label for="reoccurs_until">Until: </label>
+        <label for="reoccurs_until">Until: </label>
         <%= calendar_date_select 'event', 'reoccurs_until', :month_year => "label"%>
     </div>
-<!--    <div class= 'row' >
+ </div>
+
+<!--    
+    <div class= 'row' >
        <label for='custom_reoccurrence'> Customize: </label>
        = link_to 'Edit', {:controller=>'reoccurrences', :action=>'index'}, :class=>'edit_reocc_button' %>
        
@@ -51,8 +64,9 @@
 -->
    
  <% if @view == 'edit' %>
+  <br />
   <div class='group_title'>Tasks: </div>
-  <ul id="tasks">
+  <ul class="task_listing">
     <% if (@tasks.empty?) %>
        None
     <% else %>

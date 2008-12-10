@@ -58,6 +58,8 @@ include CalendarHelper
     @current_date_end = Time.gm(@year, @month, @day, 23, 59, 59, 0)
     
     @events = Event.find( :all, :order => 'time_start ASC')
+    @events.sort! { |a,b| a.time_start.strftime("%H%M%S") <=> b.time_start.strftime("%H%M%S")}
+
 
     #subtract 1 to correctly index the text arrays
     @day_text = Day_List[@month.to_i-1]

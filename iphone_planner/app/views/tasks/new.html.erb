@@ -3,14 +3,15 @@
     <h1 class="title">New Task</h1>
 </div>
 
-<%= error_messages_for 'task' %>
-
 <div class='panel'>
 
 <% form_tag({:action => 'create', :selected => 'true'}) do %>
 
+ <%= error_messages_for :task, :header_message => "Please Try Again!", :message => "Some of your input is not valid:" %>
+
   <fieldset>
 
+    <div class='group_title'>General Information: </div>
     <div class="row">
        <label for="task_title">Title:</label>
        <%= text_field 'task', 'title' %>
@@ -28,7 +29,8 @@
     
     <div class="row">
        <label for="event_id">For Event:</label>
-       <%= collection_select :task, :event_id, @event_list, :id, :title, :include_blank => 'None' %>
+       <!-- <= collection_select 'task', 'event_id', @event_list, :id, :title, :include_blank => 'None' %> -->
+	<%= collection_select 'task', 'event_id', Event.find(:all, :order=>'title ASC'), :id, :title, :include_blank => 'None' %>
     </div>
     
 

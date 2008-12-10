@@ -2,11 +2,31 @@ require 'vpim'
 class Event < ActiveRecord::Base
   belongs_to :schedule
   has_many :tasks
-  has_and_belongs_to_many :reoccurrences
+  #has_and_belongs_to_many :reoccurrences
+  belongs_to :reoccurrences
 
-  validates_presence_of :title, :time_start, :time_end, :message => "missing required field"
+  validates_presence_of :title, :time_start, :time_end, :message => "is a required field"
 
+  #validates_format_of :reoccurs_until, :with => /A(0[1-9]|1[012])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d\dZ/, :message => "has invalid format, use mm/dd/yyyy" 
+
+ #validates_format_of :description, :with => /[0-9]/, :message => "has invalid format, use mm/dd/yyyy" 
+
+  #validates_format_of :time_start, :time_end, :with => /^(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)[0-9]{2}$/, :message => "has invalid format, use dd/mm/yyyy mm/hh AM" 
+
+#/^(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)[0-9]{2}$/
+#/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)[0-9]{2}$/, :message => "invalid format" 
   
+#[0-1][0-9]/[0-3][0-9]/[0-9][0-9][0-9][0-9] [0-1][0-9]:[0-9]{2} [A|P][M]{1}
+
+
+  #attr_accessor :selected_reoccurrence
+
+  #before_save :save_reoccurrence
+
+  #def save_reoccurrence
+  #   Reoccurrence.push_with_attributes(Reoccurrence.find(selected_reoccurrence.to_i)) unless selected_reoccurrence.blank?
+  #end
+
   def to_ics
     cal = Icalendar::Calendar.new
     loc_string = ""
@@ -62,9 +82,12 @@ class Event < ActiveRecord::Base
     curr_date_start = Time.gm(year, month, day, 0, 0, 0, 0)
     curr_date_end   = Time.gm(year, month, day, 23, 59, 59, 0)
     
-    if (self.reoccurrences.empty?)
+    if (self.reoccurrence_id.blank?)
      #REturns true if the event occurs between 12am and 1159pm on the current date
       return ((self.time_start >= curr_date_start) && ( curr_date_end >= self.time_start))
+
+    elsif (self.time_start > curr_date_end)
+        return false
 
     #if the current date is before the reoccurs until date continue with the cases
     elsif (self.reoccurs_until.nil? || self.reoccurs_until > curr_date_end.to_date)
@@ -75,19 +98,20 @@ class Event < ActiveRecord::Base
 
         #daily case:
         #   =>  this assumes daily means every day of the week without exceptions
-        elsif (self.reoccurrences[0].frequency.downcase == 'daily')
+        elsif (Reoccurrence.find(self.reoccurrence_id).frequency.downcase == 'daily')
           return true
 
         #weekly case:
-        #   => check what the day is and see if the reoccurrences occurs onthat day          
-        elsif (self.reoccurrences[0].frequency.downcase == 'weekly')
+        #   => check what the day is and see if the reoccurrences occurs on that day          
+        elsif (Reoccurrence.find(self.reoccurrence_id).frequency.downcase == 'weekly')
             curr_day = curr_date_start.strftime("%A")
-          return  self.reoccurrences[0].occurs_on_this_day?(curr_day)
+            #return  self.reoccurrences[0].occurs_on_this_day?(curr_day)
+		return Reoccurrence.find(self.reoccurrence_id).occurs_on_this_day?(curr_day)
 
 	#monthly case:    
 	#   => check what the day is from the original event occurred on
 	#   => check what the day of the curr_date is
-	elsif (self.reoccurrences[0].frequency.downcase == 'monthly')
+      elsif (Reoccurrence.find(self.reoccurrence_id).frequency.downcase == 'monthly')
 	  original_day = self.time_start.strftime("%d")
 	  curr_day = curr_date_start.strftime("%d")
 

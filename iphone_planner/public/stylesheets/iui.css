@@ -504,6 +504,10 @@ textarea {
     font-weight: normal;
 }
 
+select {
+    margin-top: 5px;
+}
+
 /************************************************************************************************/
 
 body > .panel {
@@ -718,4 +722,38 @@ body >  .toolbar > #toolbar_menu > ul > li > a {
 body > #events {
 	
 	
+}
+
+p.no_events {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.task_listing {
+    padding-left: 0px;
+    margin-top: 3px;
+}
+
+
+/**********************************************************************************************/
+
+.errorExplanation {
+    color: #BF2E2E;
+}
+
+.errorExplanation > h2 {
+    font-size: 16px;
+}
+
+.errorExplanation > p {
+    font-size: 14px;
+}
+
+.errorExplanation > ul {
+    padding-left: 0px;
+}
+
+.errorExplanation > ul > li {
+    font-size: 14px;
 }
